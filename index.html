@@ -342,6 +342,72 @@
             font-weight: 600;
         }
 
+        /* About Roni Section */
+        .about-roni {
+            background: linear-gradient(135deg, var(--teal-dark) 0%, var(--dune) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-roni::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(237, 96, 60, 0.15) 0%, transparent 70%);
+        }
+
+        .about-roni .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-roni .section-tag {
+            color: var(--yellow);
+        }
+
+        .about-roni .section-title {
+            color: var(--white);
+        }
+
+        .about-roni-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .about-roni-story {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .about-roni-highlight {
+            background: rgba(237, 96, 60, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-orange);
+            margin-top: 2rem;
+        }
+
+        .about-roni-highlight h3 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .about-roni-highlight p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
         /* Expertise Cards */
         .expertise-grid {
             display: grid;
@@ -637,9 +703,10 @@
     <!-- Navigation Menu -->
     <nav class="nav-menu" id="navMenu">
         <div class="nav-container">
-            <a href="#" class="nav-logo">Jeremy Zaghdoun</a>
+            <a href="#" class="nav-logo">Jeremy Zaghdoun · Roni Conseil</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#profil" class="nav-link">Profil</a></li>
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
                 <li><a href="#expertises" class="nav-link">Expertises</a></li>
                 <li><a href="#realisations" class="nav-link">Réalisations</a></li>
                 <li><a href="#experience" class="nav-link">Expérience</a></li>
@@ -662,7 +729,7 @@
             <p class="hero-subtitle">Architecte d'affaires | Product Owner | Analyste d'affaires</p>
             <div class="hero-contact">
                 <div class="contact-item">438 504 5142</div>
-                <div class="contact-item">jeremyzaghdoun@gmail.com</div>
+                <div class="contact-item"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="adc7c8dfc8c0d4d7cccac5c9c2d8c3edcac0ccc4c183cec2c0">[email&#160;protected]</a></div>
                 <div class="contact-item">Montréal, QC</div>
             </div>
             <div class="cta-buttons">
@@ -689,6 +756,30 @@
             <p>Expert en transformation numérique avec <strong>plus de 20 ans d'expérience</strong> dans les secteurs bancaire, assurantiel et de la gestion de patrimoine. Spécialiste reconnu en conception de solutions d'affaires complexes, combinant une expertise approfondie des produits financiers avec une maîtrise des méthodologies agiles et de l'expérience utilisateur.</p>
             <br>
             <p>Capacité démontrée à piloter des programmes de transformation stratégique de bout en bout, de l'analyse des besoins à la livraison de solutions innovantes générant une valeur mesurable.</p>
+        </div>
+    </section>
+
+    <!-- About Roni Conseil Section -->
+    <section class="section about-roni" id="apropos">
+        <div class="section-header fade-in">
+            <div class="section-tag">Roni Conseil</div>
+            <h2 class="section-title">Au croisement de l'expertise TI et financière</h2>
+        </div>
+        <div class="about-roni-content">
+            <div class="about-roni-story fade-in">
+                <p>Roni Conseil est né d'une vision claire : combiner l'expertise technologique et la connaissance approfondie des produits financiers pour créer des solutions numériques qui répondent véritablement aux besoins du secteur.</p>
+                <br>
+                <p>Après plus de 20 ans à œuvrer dans les secteurs bancaire et assurantiel, j'ai constaté un écart persistant entre les équipes techniques et les réalités des produits financiers. Les projets web et mobiles manquaient souvent de cette compréhension profonde des instruments financiers, de la régulation et des enjeux métiers spécifiques.</p>
+                <br>
+                <p>Roni Conseil apporte cette expertise unique : une maîtrise des technologies numériques alliée à une connaissance approfondie des produits de gestion de patrimoine, des fonds d'investissement, de l'épargne-retraite et des mécanismes financiers complexes.</p>
+            </div>
+            
+            <div class="about-roni-highlight fade-in">
+                <h3>La promesse Roni Conseil</h3>
+                <p>Accompagner les institutions financières dans leurs projets de transformation numérique en apportant une double expertise rare : la maîtrise des technologies web et mobiles centrées sur l'expérience utilisateur, ET la compréhension approfondie des produits et du secteur financier.</p>
+                <br>
+                <p>Cette combinaison permet de concevoir des solutions qui ne sont pas seulement techniquement excellentes, mais qui répondent précisément aux exigences réglementaires, aux contraintes métiers et aux attentes des utilisateurs finaux dans le domaine financier.</p>
+            </div>
         </div>
     </section>
 
@@ -753,10 +844,6 @@
             <div class="achievement-card fade-in">
                 <h3>Virage numérique chez Allianz France</h3>
                 <p>Product Owner de la feuille de route digitale, déploiement d'applications iOS auprès de 2 000 agents, amélioration mesurable de l'expérience utilisateur et adoption rapide</p>
-            </div>
-            <div class="achievement-card fade-in">
-                <h3>Innovation fintech</h3>
-                <p>Conception et lancement de La Ruche (plateforme de financement participatif soutenue par Desjardins), de la vision stratégique à l'exécution opérationnelle</p>
             </div>
         </div>
     </section>
@@ -824,7 +911,6 @@
             <h4>Product Owner - Transformation digitale</h4>
             <ul class="experience-list">
                 <li>Migration Lotus Notes vers ServiceNow : accompagnement de product owners, garantie de l'application Scrum</li>
-                <li>La Ruche (financement participatif) : animation d'ateliers, wireframes, customer journeys, tests UX</li>
             </ul>
         </div>
 
@@ -984,13 +1070,13 @@
             <p>Prêt à transformer vos idées en solutions d'affaires innovantes ?</p>
             <div class="footer-contact">
                 <a href="tel:4385045142">438 504 5142</a>
-                <a href="mailto:jeremyzaghdoun@gmail.com">jeremyzaghdoun@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#670d0215020a1e1d06000f0308120927000a060e0b4904080a"><span class="__cf_email__" data-cfemail="e08a8592858d999a818788848f958ea0878d81898cce838f8d">[email&#160;protected]</span></a>
             </div>
             <p style="margin-top: 3rem; opacity: 0.6; font-size: 0.875rem;">© 2025 Jeremy Zaghdoun. Montréal, QC</p>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation Menu
         const navMenu = document.getElementById('navMenu');
         const navToggle = document.getElementById('navToggle');
@@ -1080,16 +1166,4 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll for CTA buttons
-        document.querySelectorAll('a[href="#contact"]').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-</body>
-</html>
+            observer.ob
