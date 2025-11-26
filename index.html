@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeremy Zaghdoun - Architecte d'affaires & Product Owner</title>
+    <title>Jeremy Zaghdoun - Conseiller en architecture & Product Owner</title>
     <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -723,10 +723,10 @@
         <div class="hero-content">
             <div class="hero-tag">Expert en transformation numérique</div>
             <h1>Jeremy<br>Zaghdoun</h1>
-            <p class="hero-subtitle">Analyste d'affaires | Architecte d'affaires | Product Owner</p>
+            <p class="hero-subtitle">Analyste d'affaires | Conseiller en architecture | Product Owner</p>
             <div class="hero-contact">
                 <div class="contact-item">438 504 5142</div>
-                <div class="contact-item"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5c36392e393125263d3b34383329321c3b313d3530723f3331">[email&#160;protected]</a></div>
+                <div class="contact-item">jeremyzaghdoun@gmail.com</div>
                 <div class="contact-item">Montréal, QC</div>
             </div>
             <div class="cta-buttons">
@@ -757,7 +757,7 @@
     </section>
 
     <!-- Achievements Section -->
-    <section class="section" id="realisations">
+    <section class="section section-alternate" id="realisations">
         <div class="section-header fade-in">
             <div class="section-tag">Impact</div>
             <h2 class="section-title">Réalisations marquantes</h2>
@@ -787,7 +787,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section class="section section-alternate" id="experience">
+    <section class="section" id="experience">
         <div class="section-header fade-in">
             <div class="section-tag">Parcours</div>
             <h2 class="section-title">Expérience professionnelle</h2>
@@ -824,7 +824,7 @@
             </div>
             <h3>Directeur Conseil Expert</h3>
             
-            <h4>Architecte d'affaires - Programme de transformation GPAP</h4>
+            <h4>Conseiller en architecture - Programme de transformation GPAP</h4>
             <ul class="experience-list">
                 <li>Diagnostic stratégique des flux de valeur de la manufacture de produits (épargne à terme, PGLM, BLM, fonds communs)</li>
                 <li>Cartographie complète des capacités à risque et recommandations d'initiatives prioritaires</li>
@@ -908,7 +908,7 @@
     </section>
 
     <!-- Education Section -->
-    <section class="section" id="formation">
+    <section class="section section-alternate" id="formation">
         <div class="section-header fade-in">
             <div class="section-tag">Formation</div>
             <h2 class="section-title">Parcours académique</h2>
@@ -934,7 +934,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section class="section section-alternate">
+    <section class="section">
         <div class="section-header fade-in">
             <div class="section-tag">Certifications</div>
             <h2 class="section-title">Certifications professionnelles</h2>
@@ -964,7 +964,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section class="section">
+    <section class="section section-alternate">
         <div class="section-header fade-in">
             <div class="section-tag">Compétences</div>
             <h2 class="section-title">Environnements & outils</h2>
@@ -1030,7 +1030,7 @@
         <div class="expertise-grid">
             <div class="expertise-card fade-in">
                 <div class="expertise-icon">🏗️</div>
-                <h3>Architecture d'affaires & transformation</h3>
+                <h3>Conseil en architecture & transformation</h3>
                 <p>Diagnostic et cartographie de flux de valeur, conception de solutions d'affaires stratégiques, modernisation de plateformes technologiques</p>
             </div>
             <div class="expertise-card fade-in">
@@ -1058,13 +1058,13 @@
             <p>Prêt à transformer vos idées en solutions d'affaires innovantes ?</p>
             <div class="footer-contact">
                 <a href="tel:4385045142">438 504 5142</a>
-                <a href="/cdn-cgi/l/email-protection#6c06091e090115160d0b04080319022c0b010d0500420f0301"><span class="__cf_email__" data-cfemail="2b414e594e4652514a4c434f445e456b4c464a424705484446">[email&#160;protected]</span></a>
+                <a href="mailto:jeremyzaghdoun@gmail.com">jeremyzaghdoun@gmail.com</a>
             </div>
             <p style="margin-top: 3rem; opacity: 0.6; font-size: 0.875rem;">© 2025 Jeremy Zaghdoun · Roni Conseil. Montréal, QC</p>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Navigation Menu
         const navMenu = document.getElementById('navMenu');
         const navToggle = document.getElementById('navToggle');
@@ -1072,17 +1072,12 @@
         const navLinkItems = document.querySelectorAll('.nav-link');
 
         // Show navigation on scroll
-        let lastScroll = 0;
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
+            if (window.pageYOffset > 100) {
                 navMenu.classList.add('visible');
             } else {
                 navMenu.classList.remove('visible');
             }
-            
-            lastScroll = currentScroll;
         });
 
         // Mobile menu toggle
@@ -1133,7 +1128,7 @@
 
             navLinkItems.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
+                if (link.getAttribute('href') === ('#' + current)) {
                     link.classList.add('active');
                 }
             });
@@ -1154,4 +1149,16 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => {
-            observer.ob
+            observer.observe(el);
+        });
+
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('a[href="#contact"]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
