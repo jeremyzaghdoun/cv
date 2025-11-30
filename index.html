@@ -31,6 +31,35 @@
             overflow-x: hidden;
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-button {
+            padding: 0.5rem 1rem;
+            background: none;
+            border: 2px solid var(--dune);
+            border-radius: 20px;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dune);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-button:hover,
+        .lang-button.active {
+            background: var(--accent-orange);
+            color: var(--white);
+            border-color: var(--accent-orange);
+        }
+
         /* Navigation Menu */
         .nav-menu {
             position: fixed;
@@ -710,6 +739,10 @@
                 <li><a href="#expertises" class="nav-link">Expertises</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <div class="lang-switcher">
+                <a href="index.html" class="lang-button active">FR</a>
+                <a href="index_en.html" class="lang-button">EN</a>
+            </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -726,7 +759,7 @@
             <p class="hero-subtitle">Analyste d'affaires | Conseiller en architecture | Product Owner</p>
             <div class="hero-contact">
                 <div class="contact-item">438 504 5142</div>
-                <div class="contact-item">jeremyzaghdoun@gmail.com</div>
+                <div class="contact-item"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="72181700171f0b32001d1c1b111d1c01171b1e5c111d1f">[email&#160;protected]</a></div>
                 <div class="contact-item">Montréal, QC</div>
             </div>
             <div class="cta-buttons">
@@ -738,6 +771,12 @@
                         <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
                     Télécharger le CV (PDF)
+                </a>
+                <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" rel="noopener noreferrer" class="cta-button cta-button-secondary" title="Profil LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
                 </a>
             </div>
         </div>
@@ -765,7 +804,7 @@
         <div class="achievements-list">
             <div class="achievement-card fade-in">
                 <h3>Programme d'innovation stratégique à la Banque Nationale</h3>
-                <p>Analyse de fonctionnalités stratégiques, cartographie de processus complexes impliquant multiples domaines d'affaires, animation d'ateliers bilingues stratégiques, coordination agile avec l'ensemble des équipes du laboratoire d'innovation</p>
+                <p>Analyse et structuration de programmes d'innovation majeurs, cartographie de processus complexes impliquant multiples domaines d'affaires, animation d'ateliers bilingues stratégiques, coordination agile avec l'ensemble des équipes du laboratoire d'innovation</p>
             </div>
             <div class="achievement-card fade-in">
                 <h3>Transformation de la manufacture de produits chez Desjardins</h3>
@@ -1058,13 +1097,21 @@
             <p>Prêt à transformer vos idées en solutions d'affaires innovantes ?</p>
             <div class="footer-contact">
                 <a href="tel:4385045142">438 504 5142</a>
-                <a href="mailto:jeremyzaghdoun@gmail.com">jeremyzaghdoun@gmail.com</a>
+                <a href="/cdn-cgi/l/email-protection#0f656a7d6a62764f7d6061666c60617c6a6663216c6062"><span class="__cf_email__" data-cfemail="09636c7b6c6470497b6667606a66677a6c6065276a6664">[email&#160;protected]</span></a>
             </div>
-            <p style="margin-top: 3rem; opacity: 0.6; font-size: 0.875rem;">© 2025 Jeremy Zaghdoun · Roni Conseil. Montréal, QC</p>
+            <div class="footer-legal" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">Roni Conseil Inc. | NEQ : 1180867971</p>
+                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">Montréal, Québec, Canada</p>
+                <p style="margin-bottom: 1rem; font-size: 0.875rem;">
+                    <a href="https://roniconseil.com" style="color: var(--white); text-decoration: none;">roniconseil.com</a> | 
+                    <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" style="color: var(--white); text-decoration: none;">LinkedIn</a>
+                </p>
+                <p style="opacity: 0.6; font-size: 0.875rem;">© 2025 Roni Conseil Inc. Tous droits réservés.</p>
+            </div>
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation Menu
         const navMenu = document.getElementById('navMenu');
         const navToggle = document.getElementById('navToggle');
@@ -1122,43 +1169,4 @@
                 const sectionHeight = section.clientHeight;
                 
                 if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinkItems.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === ('#' + current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll for CTA buttons
-        document.querySelectorAll('a[href="#contact"]').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
-</body>
-</html>
+                   
