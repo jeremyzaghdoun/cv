@@ -36,7 +36,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 1000;
+            z-index: 10000;
             display: flex;
             gap: 0.75rem;
             align-items: center;
@@ -757,7 +757,7 @@
             <p class="hero-subtitle">Business Analyst | Architecture Advisor | Product Owner</p>
             <div class="hero-contact">
                 <div class="contact-item">438 504 5142</div>
-                <div class="contact-item"><a href="mailto:jeremy@roniconseil.com">jeremy@roniconseil.com</a></div>
+                <div class="contact-item"><a href="/cdn-cgi/l/email-protection#543e312631392d14263b3a3d373b3a27313d387a373b39"><span class="__cf_email__" data-cfemail="9ff5faedfaf2e6dfedf0f1f6fcf0f1ecfaf6f3b1fcf0f2">[email&#160;protected]</span></a></div>
                 <div class="contact-item">Montreal, Quebec, Canada</div>
             </div>
             <!-- Language Switcher -->
@@ -1101,7 +1101,7 @@
             <p>Ready to transform your ideas into innovative business solutions ?</p>
             <div class="footer-contact">
                 <a href="tel:4385045142">438 504 5142</a>
-                <a href="mailto:jeremy@roniconseil.com">jeremy@roniconseil.com</a>
+                <a href="/cdn-cgi/l/email-protection#610b0413040c1821130e0f08020e0f1204080d4f020e0c"><span class="__cf_email__" data-cfemail="e68c8394838b9fa69489888f85898895838f8ac885898b">[email&#160;protected]</span></a>
             </div>
             <div class="footer-legal" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
                 <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">Roni Conseil Inc. | NEQ : 1180867971</p>
@@ -1115,7 +1115,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation Menu
         const navMenu = document.getElementById('navMenu');
         const navToggle = document.getElementById('navToggle');
@@ -1147,12 +1147,4 @@
 
         // Smooth scroll and active link highlighting
         navLinkItems.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
+            link.addEventList
