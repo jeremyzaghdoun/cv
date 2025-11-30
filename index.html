@@ -32,10 +32,18 @@
         }
 
         /* Language Switcher */
-                .lang-switcher {
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
             display: flex;
             gap: 0.75rem;
             align-items: center;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
                         .lang-button {
@@ -713,252 +721,7 @@
             transform: translateY(0);
         }
     
-        /* Contact Form */
-        .contact-form-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
         
-        .contact-form {
-            background: var(--bg-subtle);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(50,48,47,0.1);
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--dune);
-            margin-bottom: 0.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            background: var(--white);
-            border: 1px solid rgba(50,48,47,0.15);
-            border-radius: 8px;
-            font-family: 'Instrument Sans', sans-serif;
-            font-size: 0.9375rem;
-            color: var(--dune);
-            transition: border-color 0.2s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-orange);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                padding: 1.5rem;
-            }
-        }
-
-
-        /* Language Switcher in Header */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 2px solid var(--accent-orange);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .lang-switch a {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--accent-orange);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        
-        .lang-switch a:hover {
-            opacity: 0.7;
-        }
-        
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-orange);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(237,96,60,0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--dune);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(237,96,60,0.4);
-        }
-        
-        @media (max-width: 768px) {
-            .lang-switch {
-                top: 10px;
-                right: 10px;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-        }
-
-    
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-orange);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(237, 96, 60, 0.3);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(237, 96, 60, 0.4);
-        }
-        
-        .back-to-top:active {
-            transform: translateY(-1px);
-        }
-
-    
-        /* Language Switcher Button */
-        .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        
-        .lang-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1rem;
-            background: var(--white);
-            border: 2px solid var(--dune);
-            border-radius: 24px;
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--dune);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(50,48,47,0.1);
-        }
-        
-        .lang-button:hover {
-            background: var(--accent-orange);
-            color: var(--white);
-            border-color: var(--accent-orange);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(237,96,60,0.2);
-        }
-
-    
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-orange);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(237,96,60,0.3);
-            transition: all 0.3s ease;
-            z-index: 999;
-            text-decoration: none;
-        }
-        
-        .back-to-top:hover {
-            background: var(--teal-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(237,96,60,0.4);
-        }
-        
-        @media (max-width: 768px) {
-            .back-to-top {
-                width: 45px;
-                height: 45px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
 
     </style>
 </head>
@@ -995,7 +758,7 @@
             <p class="hero-subtitle">Analyste d'affaires | Conseiller en architecture | Product Owner</p>
             <div class="hero-contact">
                 <div class="contact-item">438 504 5142</div>
-                <div class="contact-item"><a href="mailto:jeremy@roniconseil.com">jeremy@roniconseil.com</a></div>
+                <div class="contact-item"><a href="/cdn-cgi/l/email-protection#6e040b1c0b03172e1c0100070d01001d0b0702400d0103"><span class="__cf_email__" data-cfemail="97fdf2e5f2faeed7e5f8f9fef4f8f9e4f2fefbb9f4f8fa">[email&#160;protected]</span></a></div>
                 <div class="contact-item">Montréal, Québec, Canada</div>
             </div>
             <!-- Language Switcher -->
@@ -1332,54 +1095,7 @@
     </section>
 
 
-    <!-- Contact Form Section -->
-    <section class="section" id="contact-form">
-        <div class="section-header">
-            <div class="section-tag">Contact</div>
-            <h2 class="section-title">Envoyez-moi un message</h2>
-        </div>
-        <div class="contact-form-container">
-            <p style="color: var(--dune); opacity: 0.7; margin-bottom: 2rem;">Partagez les détails de votre projet et je vous répondrai dans les plus brefs délais.</p>
-            
-            <form action="mailto:jeremy@roniconseil.com" method="post" enctype="text/plain" class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="Nom" placeholder="Votre nom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="Email" placeholder="votre@email.com" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="company">Entreprise</label>
-                        <input type="text" id="company" name="Entreprise" placeholder="Nom de votre entreprise">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Téléphone</label>
-                        <input type="tel" id="phone" name="Téléphone" placeholder="438 XXX XXXX">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" id="subject" name="Sujet" placeholder="Transformation digitale, conseil architecture, etc." required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="Message" rows="6" placeholder="Décrivez votre projet, vos besoins, et vos objectifs..." required></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button">Envoyer le message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer / Contact -->
+        <!-- Footer / Contact -->
     <footer class="footer" id="contact">
         <div class="footer-content">
             <h2>Discutons de votre projet</h2>
@@ -1400,7 +1116,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation Menu
         const navMenu = document.getElementById('navMenu');
         const navToggle = document.getElementById('navToggle');
@@ -1447,10 +1163,4 @@
             });
         });
 
-        // Highlight active section in navigation
-        const sections = document.querySelectorAll('section[id]');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
+        // Highlight activ
