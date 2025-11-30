@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeremy Zaghdoun - Conseiller en architecture & Product Owner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dune: #32302F;
+            --white: #FFFFFF;
+            --accent-orange: #ed603c;
+            --teal-dark: #3e5b5e;
+            --teal-light: #83a6a8;
+            --yellow: #f6ba40;
+            --bg-light: #fafafa;
+            --bg-subtle: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Instrument Sans', -apple-system, sans-serif;
+            background: var(--bg-light);
+            color: var(--dune);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Language Switcher */
+                .lang-switcher {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+                        .lang-button {
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border: 2px solid var(--dune);
+            border-radius: 20px;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dune);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .lang-button:hover,
+        .lang-button.active {
+            background: var(--accent-orange);
+            color: var(--white);
+            border-color: var(--accent-orange);
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(50, 48, 47, 0.1);
+            padding: 1rem 5%;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-menu.visible {
+            transform: translateY(0);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dune);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--dune);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--accent-orange);
+            color: var(--white);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--dune);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 5%;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(237, 96, 60, 0.08) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-orange);
+            margin-bottom: 1.5rem;
+            
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-weight: 500;
+            color: var(--teal-dark);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            
+        }
+
+        .hero-contact {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: var(--dune);
+        }
+
+        .contact-item::before {
+            content: '●';
+            color: var(--accent-orange);
+            font-size: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--accent-orange);
+            color: var(--white);
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--dune);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(237, 96, 60, 0.3);
+        }
+
+        .cta-button-secondary {
+            background: var(--bg-light);
+            color: var(--dune);
+            border: 2px solid var(--dune);
+        }
+
+        .cta-button-secondary:hover {
+            background: var(--dune);
+            color: var(--white);
+            border-color: var(--dune);
+        }
+
+        /* Section Container */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-alternate {
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        /* Profile Section */
+        .profile-content {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            max-width: 900px;
+            color: var(--dune);
+        }
+
+        .profile-content strong {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        /* About Roni Section */
+        .about-roni {
+            background: linear-gradient(135deg, var(--teal-dark) 0%, var(--dune) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-roni::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 140%;
+            background: radial-gradient(circle, rgba(237, 96, 60, 0.15) 0%, transparent 70%);
+        }
+
+        .about-roni .section-header {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-roni .section-tag {
+            color: var(--yellow);
+        }
+
+        .about-roni .section-title {
+            color: var(--white);
+        }
+
+        .about-roni-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .about-roni-story {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .about-roni-highlight {
+            background: rgba(237, 96, 60, 0.2);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-orange);
+            margin-top: 2rem;
+        }
+
+        .about-roni-highlight h3 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .about-roni-highlight p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Expertise Cards */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(50, 48, 47, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(50, 48, 47, 0.1);
+            border-color: var(--accent-orange);
+        }
+
+        .expertise-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--yellow));
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .expertise-card h3 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .expertise-card p {
+            color: var(--teal-dark);
+            line-height: 1.7;
+        }
+
+        /* Achievement Cards */
+        .achievements-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent-orange);
+            box-shadow: 0 4px 20px rgba(50, 48, 47, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(50, 48, 47, 0.1);
+        }
+
+        .achievement-card h3 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dune);
+        }
+
+        .achievement-card p {
+            color: var(--teal-dark);
+            line-height: 1.7;
+        }
+
+        /* Experience Timeline */
+        .experience-item {
+            margin-bottom: 4rem;
+            padding-left: 2rem;
+            border-left: 2px solid var(--bg-subtle);
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+        }
+
+        .experience-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-company {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-orange);
+        }
+
+        .experience-period {
+            font-size: 0.875rem;
+            color: var(--teal-light);
+        }
+
+        .experience-item h3 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .experience-item h4 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: var(--teal-dark);
+        }
+
+        .experience-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-list li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--dune);
+        }
+
+        .experience-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        /* Education & Certifications */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .education-item {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(50, 48, 47, 0.1);
+        }
+
+        .education-item strong {
+            display: block;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dune);
+        }
+
+        .education-item p {
+            color: var(--teal-dark);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(50, 48, 47, 0.1);
+        }
+
+        .skill-category h3 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent-orange);
+        }
+
+        .skill-category p {
+            color: var(--dune);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dune);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.125rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 5%;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+
+            .hero-contact {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .expertise-grid,
+            .education-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--bg-light);
+                flex-direction: column;
+                gap: 0;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(50, 48, 47, 0.1);
+                transform: translateY(-100%);
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 20px rgba(50, 48, 47, 0.1);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .nav-links a {
+                padding: 1rem 5%;
+                border-radius: 0;
+                display: block;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+            }
+
+            .nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Intersection Observer animations */
+        .fade-in { }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        /* Contact Form */
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-form {
+            background: var(--bg-subtle);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(50,48,47,0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--dune);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--white);
+            border: 1px solid rgba(50,48,47,0.15);
+            border-radius: 8px;
+            font-family: 'Instrument Sans', sans-serif;
+            font-size: 0.9375rem;
+            color: var(--dune);
+            transition: border-color 0.2s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+
+        /* Language Switcher in Header */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 2px solid var(--accent-orange);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .lang-switch a {
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--accent-orange);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .lang-switch a:hover {
+            opacity: 0.7;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(237,96,60,0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--dune);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(237,96,60,0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .lang-switch {
+                top: 10px;
+                right: 10px;
+                padding: 0.4rem 0.8rem;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+    
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(237, 96, 60, 0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(237, 96, 60, 0.4);
+        }
+        
+        .back-to-top:active {
+            transform: translateY(-1px);
+        }
+
+    
+        /* Language Switcher Button */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .lang-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            background: var(--white);
+            border: 2px solid var(--dune);
+            border-radius: 24px;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dune);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(50,48,47,0.1);
+        }
+        
+        .lang-button:hover {
+            background: var(--accent-orange);
+            color: var(--white);
+            border-color: var(--accent-orange);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(237,96,60,0.2);
+        }
+
+    
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(237,96,60,0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+        
+        .back-to-top:hover {
+            background: var(--teal-dark);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(237,96,60,0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+                    <a href="index.html" class="lang-button active">FR</a>
+                    <a href="index_en.html" class="lang-button">EN</a>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-button">Discutons de votre projet</a>
+                <a href="CV_JEREMY_ZAGHDOUN_2025.pdf" download class="cta-button cta-button-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Télécharger le CV (PDF)
+                </a>
+                <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" rel="noopener noreferrer" class="cta-button cta-button-secondary" title="Profil LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="section" id="profil">
+        <div class="section-header fade-in">
+            <div class="section-tag">À propos</div>
+            <h2 class="section-title">Profil professionnel</h2>
+        </div>
+        <div class="profile-content fade-in">
+            <p>Expert en transformation numérique avec <strong>plus de 20 ans d'expérience</strong> dans les secteurs bancaire, assurantiel et de la gestion de patrimoine. Spécialiste reconnu en conception de solutions d'affaires complexes, combinant une expertise approfondie des produits financiers avec une maîtrise des méthodologies agiles et de l'expérience utilisateur.</p>
+            <br>
+            <p>Capacité démontrée à intervenir sur des programmes de transformation stratégique majeurs, de l'analyse des besoins à la livraison de solutions innovantes générant une valeur mesurable.</p>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="section section-alternate" id="realisations">
+        <div class="section-header fade-in">
+            <div class="section-tag">Impact</div>
+            <h2 class="section-title">Réalisations marquantes</h2>
+        </div>
+        <div class="achievements-list">
+            <div class="achievement-card fade-in">
+                <h3>Programme d'innovation stratégique à la Banque Nationale</h3>
+                <p>Analyse et structuration de programmes d'innovation majeurs, cartographie de processus complexes impliquant multiples domaines d'affaires, animation d'ateliers bilingues stratégiques, coordination agile avec l'ensemble des équipes du laboratoire d'innovation</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <h3>Transformation de la manufacture de produits chez Desjardins</h3>
+                <p>Diagnostic complet des flux de valeur pour les fonds communs de placements, FNB, épargnes à terme et PGLM, identification des capacités à risque, proposition d'initiatives stratégiques générant des gains d'efficacité significatifs</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <h3>Migration technologique d'envergure (FMS vers Unitrax)</h3>
+                <p>Pilotage de la migration complète incluant stratégies d'essais, coordination technique, documentation processus, réduction du risque opérationnel et conformité réglementaire</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <h3>Formation de 100+ professionnels en gestion de patrimoine</h3>
+                <p>Conception et animation du programme « Gestion de patrimoine 101 » couvrant acteurs du système financier, régulation, instruments et classes d'actifs</p>
+            </div>
+            <div class="achievement-card fade-in">
+                <h3>Virage numérique chez Allianz France</h3>
+                <p>Product Owner de la feuille de route digitale, déploiement d'applications iOS auprès de 2 000 agents, amélioration mesurable de l'expérience utilisateur et adoption rapide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="section-header fade-in">
+            <div class="section-tag">Parcours</div>
+            <h2 class="section-title">Expérience professionnelle</h2>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <span class="experience-company">Roni Conseil (Incorporation)</span>
+                <span class="experience-period">2025 - Présent</span>
+            </div>
+            <h3>Consultant en solutions numériques – Banque, Finance, Assurances</h3>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <span class="experience-company">Banque Nationale (via We+)</span>
+                <span class="experience-period">2025 - Présent</span>
+            </div>
+            <h3>Analyste d'affaires - Laboratoire d'innovation</h3>
+            <ul class="experience-list">
+                <li><strong>Leadership de programmes d'innovation stratégique :</strong> Appropriation complète de programmes d'innovation complexes, analyse approfondie des objectifs stratégiques, identification des enjeux technologiques et d'affaires, alignement des initiatives avec la vision organisationnelle</li>
+                <li><strong>Analyse et optimisation de processus :</strong> Cartographie détaillée des processus d'affaires actuels et cibles, identification des inefficacités et opportunités d'amélioration, documentation des flux de travail complexes impliquant plusieurs domaines d'affaires</li>
+                <li><strong>Facilitation et animation d'ateliers stratégiques :</strong> Animation d'ateliers bilingues (français/anglais) avec parties prenantes de haut niveau, collecte et synthèse de besoins complexes, documentation rigoureuse des requis fonctionnels et techniques, validation des exigences avec les domaines concernés</li>
+                <li><strong>Coordination agile multi-équipes :</strong> Collaboration étroite avec toutes les équipes du laboratoire d'innovation (développement, UX, architecture, opérations), facilitation de la communication entre domaines techniques et d'affaires, support à la priorisation et planification des initiatives en contexte agile</li>
+                <li><strong>Rédaction de récits d'utilisation et spécifications :</strong> Création de user stories détaillées, rédaction de critères d'acceptation clairs, documentation de cas d'usage et scénarios d'utilisation, support à la conception de solutions innovantes</li>
+                <li><strong>Gestion des parties prenantes :</strong> Communication proactive avec les sponsors exécutifs et parties prenantes clés, présentation de recommandations stratégiques, gestion des attentes et résolution de conflits, alignement des objectifs entre domaines d'affaires</li>
+            </ul>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <span class="experience-company">CGI (Desjardins GPAP)</span>
+                <span class="experience-period">2018-2025</span>
+            </div>
+            <h3>Directeur Conseil Expert</h3>
+            
+            <h4>Conseiller en architecture - Programme de transformation GPAP</h4>
+            <ul class="experience-list">
+                <li>Diagnostic stratégique des flux de valeur de la manufacture de produits (épargne à terme, PGLM, BLM, fonds communs)</li>
+                <li>Cartographie complète des capacités à risque et recommandations d'initiatives prioritaires</li>
+                <li>Leadership de l'analyse d'affaires pour le lancement de produits de taux destinés aux réseaux spécialisés</li>
+            </ul>
+
+            <h4>Formateur - Gestion de patrimoine 101</h4>
+            <ul class="experience-list">
+                <li>Formation de 100+ professionnels aux fondamentaux de la gestion de patrimoine depuis 2022</li>
+            </ul>
+
+            <h4>Analyste d'affaires - Projets stratégiques</h4>
+            <ul class="experience-list">
+                <li>Migration FMS vers Unitrax : stratégies d'essais, coordination technique et fonctionnelle</li>
+                <li>Rehaussement ERC : étude de faisabilité, animation d'ateliers, coordination des équipes techniques</li>
+            </ul>
+
+            <h4>Product Owner - Transformation digitale</h4>
+            <ul class="experience-list">
+                <li>Migration Lotus Notes vers ServiceNow : accompagnement de product owners, garantie de l'application Scrum</li>
+            </ul>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <span class="experience-company">Allianz France</span>
+                <span class="experience-period">2014-2018</span>
+            </div>
+            <h3>Product Owner & Responsable Projet</h3>
+            
+            <h4>Virage numérique de l'entreprise</h4>
+            <ul class="experience-list">
+                <li>Pilotage de la feuille de route digitale : récits d'utilisation, conception de parcours, prototypage</li>
+                <li>Cadrage et exécution de tests d'ergonomie pré-développement, amélioration continue</li>
+                <li>Accompagnement du changement : tutoriels, vidéos pédagogiques, formations</li>
+            </ul>
+
+            <h4>Application iPad MAX Tablettes Agents</h4>
+            <ul class="experience-list">
+                <li>Déploiement auprès de 2 000 agents généraux et préventionnistes</li>
+                <li>Gestion complète du cycle de vie produit en méthodologie Agile</li>
+                <li>Coordination multi-parties prenantes (juridique, distribution, marketing, architecture)</li>
+            </ul>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <span class="experience-company">ING Direct</span>
+                <span class="experience-period">2011-2013</span>
+            </div>
+            <h3>Analyste d'affaires & Chargé de projet</h3>
+            <ul class="experience-list">
+                <li>Feuille de route solutions mobiles iOS et Android : spécifications fonctionnelles détaillées</li>
+                <li>Conception et tests de services Web (SOAP UI) et API REST pour applications bancaires</li>
+            </ul>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <span class="experience-company">Generali France</span>
+                <span class="experience-period">2008-2011</span>
+            </div>
+            <h3>Analyste d'affaires</h3>
+            <ul class="experience-list">
+                <li>Programme Web et mobile : animation d'ateliers, rédaction de spécifications fonctionnelles</li>
+                <li>Recette fonctionnelle, automatisation de tests sous Selenium</li>
+            </ul>
+        </div>
+
+        <div class="experience-item fade-in">
+            <div class="experience-meta">
+                <span class="experience-company">BNP Paribas Assurance</span>
+                <span class="experience-period">2003-2008</span>
+            </div>
+            <h3>Analyste d'affaires</h3>
+            <ul class="experience-list">
+                <li>Table de mortalité - Service de rentes : collecte de besoins multi-métiers</li>
+                <li>Cartographie de processus d'affaires, étude d'impacts applicatifs</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section section-alternate" id="formation">
+        <div class="section-header fade-in">
+            <div class="section-tag">Formation</div>
+            <h2 class="section-title">Parcours académique</h2>
+        </div>
+        <div class="education-grid">
+            <div class="education-item fade-in">
+                <strong>Certificat de planification financière (Pl.Fin.)</strong>
+                <p>HEC Montréal (en cours - complété en 2027)</p>
+            </div>
+            <div class="education-item fade-in">
+                <strong>Diploma UX Design</strong>
+                <p>UX Design Institute (2020)</p>
+            </div>
+            <div class="education-item fade-in">
+                <strong>Master Finance de marché et gestion de patrimoine</strong>
+                <p>Conservatoire national des arts et métiers, Paris (2008)</p>
+            </div>
+            <div class="education-item fade-in">
+                <strong>Titre de responsable de gestion</strong>
+                <p>European Business School, Paris (2002)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <div class="section-tag">Certifications</div>
+            <h2 class="section-title">Certifications professionnelles</h2>
+        </div>
+        <div class="education-grid">
+            <div class="education-item fade-in">
+                <strong>UX Master Certificate</strong>
+                <p>Nielsen Norman Group (2021)</p>
+            </div>
+            <div class="education-item fade-in">
+                <strong>SAFe PO/PM</strong>
+                <p>Scaled Agile Framework (2019)</p>
+            </div>
+            <div class="education-item fade-in">
+                <strong>PSPO I</strong>
+                <p>Professional Scrum Product Owner I (2019)</p>
+            </div>
+            <div class="education-item fade-in">
+                <strong>UX-PM Certification</strong>
+                <p>UXalliance (2017)</p>
+            </div>
+            <div class="education-item fade-in">
+                <strong>PMP</strong>
+                <p>Project Management Professional (2013)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-alternate">
+        <div class="section-header fade-in">
+            <div class="section-tag">Compétences</div>
+            <h2 class="section-title">Environnements & outils</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h3>Produits financiers</h3>
+                <p>Unitrax, Global+, tenue de registres</p>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Méthodologies</h3>
+                <p>Agile Scrum, SAFe, Design Thinking, Lean</p>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Outils de gestion</h3>
+                <p>JIRA, Microsoft Project, Visio, Quality Center, Trello, Basecamp</p>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>UX & prototypage</h3>
+                <p>Axure, Balsamiq, Figma, tests d'utilisabilité</p>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Technologies</h3>
+                <p>Services Web (REST, SOAP), iOS, Android, HTML/CSS, ServiceNow</p>
+            </div>
+            <div class="skill-category fade-in">
+                <h3>Langues</h3>
+                <p>Français (natif), Anglais (professionnel), Espagnol (conversationnel)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Roni Conseil Section -->
+    <section class="section about-roni" id="apropos">
+        <div class="section-header fade-in">
+            <div class="section-tag">Roni Conseil</div>
+            <h2 class="section-title">Au croisement de l'expertise TI et financière</h2>
+        </div>
+        <div class="about-roni-content">
+            <div class="about-roni-story fade-in">
+                <p>Roni Conseil est né d'une vision claire : combiner l'expertise technologique et la connaissance approfondie des produits financiers pour créer des solutions numériques qui répondent véritablement aux besoins du secteur.</p>
+                <br>
+                <p>Après plus de 20 ans à œuvrer dans les secteurs bancaire et assurantiel, j'ai constaté un écart persistant entre les équipes techniques et les réalités des produits financiers. Les projets web et mobiles manquaient souvent de cette compréhension profonde des instruments financiers, de la régulation et des enjeux métiers spécifiques.</p>
+                <br>
+                <p>Roni Conseil apporte cette expertise unique : une maîtrise des technologies numériques alliée à une connaissance approfondie des produits de gestion de patrimoine, des fonds d'investissement, de l'épargne-retraite et des mécanismes financiers complexes.</p>
+            </div>
+            
+            <div class="about-roni-highlight fade-in">
+                <h3>La promesse Roni Conseil</h3>
+                <p>Accompagner les institutions financières dans leurs projets de transformation numérique en apportant une double expertise rare : la maîtrise des technologies web et mobiles centrées sur l'expérience utilisateur, ET la compréhension approfondie des produits et du secteur financier.</p>
+                <br>
+                <p>Cette combinaison permet de concevoir des solutions qui ne sont pas seulement techniquement excellentes, mais qui répondent précisément aux exigences réglementaires, aux contraintes métiers et aux attentes des utilisateurs finaux dans le domaine financier.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="section section-alternate" id="expertises">
+        <div class="section-header fade-in">
+            <div class="section-tag">Expertises</div>
+            <h2 class="section-title">Domaines d'excellence</h2>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">🏗️</div>
+                <h3>Conseil en architecture & transformation</h3>
+                <p>Diagnostic et cartographie de flux de valeur, conception de solutions d'affaires stratégiques, modernisation de plateformes technologiques</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">💼</div>
+                <h3>Gestion de produits financiers</h3>
+                <p>Épargne-retraite collective, fonds communs de placement, produits de bilan, manufacture de produits d'investissement</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">🚀</div>
+                <h3>Leadership Agile & Product Ownership</h3>
+                <p>Product Owner certifié (PSPO I), SAFe PO/PM, pilotage d'équipes Scrum, gestion de carnet produit</p>
+            </div>
+            <div class="expertise-card fade-in">
+                <div class="expertise-icon">✨</div>
+                <h3>Excellence en expérience utilisateur</h3>
+                <p>UX Master Certificate (Nielsen Norman Group), conception de parcours clients, prototypage, tests d'utilisabilité</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Form Section -->
+    <section class="section" id="contact-form">
+        <div class="section-header">
+            <div class="section-tag">Contact</div>
+            <h2 class="section-title">Envoyez-moi un message</h2>
+        </div>
+        <div class="contact-form-container">
+            <p style="color: var(--dune); opacity: 0.7; margin-bottom: 2rem;">Partagez les détails de votre projet et je vous répondrai dans les plus brefs délais.</p>
+            
+            <form action="mailto:jeremy@roniconseil.com" method="post" enctype="text/plain" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="Nom" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="Email" placeholder="votre@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="company">Entreprise</label>
+                        <input type="text" id="company" name="Entreprise" placeholder="Nom de votre entreprise">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="Téléphone" placeholder="438 XXX XXXX">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" name="Sujet" placeholder="Transformation digitale, conseil architecture, etc." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="Message" rows="6" placeholder="Décrivez votre projet, vos besoins, et vos objectifs..." required></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <h2>Discutons de votre projet</h2>
+            <p>Prêt à transformer vos idées en solutions d'affaires innovantes ?</p>
+            <div class="footer-contact">
+                <a href="tel:4385045142">438 504 5142</a>
+                <a href="/cdn-cgi/l/email-protection#7f151a0d1a12063f0d1011161c10110c1a1613511c1012"><span class="__cf_email__" data-cfemail="6d07081f0800142d1f0203040e02031e080401430e0200">[email&#160;protected]</span></a>
+            </div>
+            <div class="footer-legal" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">Roni Conseil Inc. | NEQ : 1180867971</p>
+                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">Montréal, Québec, Canada</p>
+                <p style="margin-bottom: 1rem; font-size: 0.875rem;">
+                    <a href="https://roniconseil.com" style="color: var(--white); text-decoration: none;">roniconseil.com</a> | 
+                    <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" style="color: var(--white); text-decoration: none;">LinkedIn</a>
+                </p>
+                <p style="opacity: 0.6; font-size: 0.875rem;">© 2025 Roni Conseil Inc. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navigation Menu
+        const navMenu = document.getElementById('navMenu');
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navLinkItems = document.querySelectorAll('.nav-link');
+
+        // Show navigation on scroll
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                navMenu.classList.add('visible');
+            } else {
+                navMenu.classList.remove('visible');
+            }
+        });
+
+        // Mobile menu toggle
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll and active link highlighting
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in navigation
+        const sections = document.querySelectorAll('section[id]');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+              
