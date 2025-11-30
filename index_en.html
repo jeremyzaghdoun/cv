@@ -32,10 +32,18 @@
         }
 
         /* Language Switcher */
-                .lang-switcher {
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
             display: flex;
             gap: 0.75rem;
             align-items: center;
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
                         .lang-button {
@@ -713,252 +721,7 @@
             transform: translateY(0);
         }
     
-        /* Contact Form */
-        .contact-form-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
         
-        .contact-form {
-            background: var(--bg-subtle);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(50,48,47,0.1);
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--dune);
-            margin-bottom: 0.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            background: var(--white);
-            border: 1px solid rgba(50,48,47,0.15);
-            border-radius: 8px;
-            font-family: 'Instrument Sans', sans-serif;
-            font-size: 0.9375rem;
-            color: var(--dune);
-            transition: border-color 0.2s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-orange);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                padding: 1.5rem;
-            }
-        }
-
-
-        /* Language Switcher in Header */
-        .lang-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            border: 2px solid var(--accent-orange);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .lang-switch a {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--accent-orange);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        
-        .lang-switch a:hover {
-            opacity: 0.7;
-        }
-        
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-orange);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(237,96,60,0.3);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            z-index: 999;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--dune);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(237,96,60,0.4);
-        }
-        
-        @media (max-width: 768px) {
-            .lang-switch {
-                top: 10px;
-                right: 10px;
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
-            }
-        }
-
-    
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-orange);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(237, 96, 60, 0.3);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(237, 96, 60, 0.4);
-        }
-        
-        .back-to-top:active {
-            transform: translateY(-1px);
-        }
-
-    
-        /* Language Switcher Button */
-        .lang-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        
-        .lang-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.625rem 1rem;
-            background: var(--white);
-            border: 2px solid var(--dune);
-            border-radius: 24px;
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--dune);
-            text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(50,48,47,0.1);
-        }
-        
-        .lang-button:hover {
-            background: var(--accent-orange);
-            color: var(--white);
-            border-color: var(--accent-orange);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(237,96,60,0.2);
-        }
-
-    
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-orange);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(237,96,60,0.3);
-            transition: all 0.3s ease;
-            z-index: 999;
-            text-decoration: none;
-        }
-        
-        .back-to-top:hover {
-            background: var(--teal-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(237,96,60,0.4);
-        }
-        
-        @media (max-width: 768px) {
-            .back-to-top {
-                width: 45px;
-                height: 45px;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
 
     </style>
 </head>
@@ -995,7 +758,7 @@
             <p class="hero-subtitle">Business Analyst | Architecture Advisor | Product Owner</p>
             <div class="hero-contact">
                 <div class="contact-item">438 504 5142</div>
-                <div class="contact-item"><a href="mailto:jeremy@roniconseil.com">jeremy@roniconseil.com</a></div>
+                <div class="contact-item"><a href="/cdn-cgi/l/email-protection#4d27283f2820340d3f2223242e22233e282421632e2220"><span class="__cf_email__" data-cfemail="13797661767e6a53617c7d7a707c7d60767a7f3d707c7e">[email&#160;protected]</span></a></div>
                 <div class="contact-item">Montreal, Quebec, Canada</div>
             </div>
             <!-- Language Switcher -->
@@ -1056,12 +819,12 @@
                 <p>Full migration leadership including testing strategies, technical coordination, process documentation, operational risk reduction and regulatory compliance</p>
             </div>
             <div class="achievement-card fade-in">
-                <h3>Education de 100+ professionnels en gestion de patrimoine</h3>
-                <p>Conception et animation du programme « Wealth Management 101 » couvrant acteurs du système financier, régulation, instruments et classes d'actifs</p>
+                <h3>Training 100+ professionals in wealth management</h3>
+                <p>Design and facilitation of "Wealth Management 101" program covering financial system actors, regulation, instruments, and asset classes</p>
             </div>
             <div class="achievement-card fade-in">
-                <h3>Virage numérique chez Allianz FRnce</h3>
-                <p>Product Owner de la feuille de route digitale, déploiement d'applications iOS auprès de 2 000 agents, amélioration mesurable de l'expérience utilisateur et adoption rapide</p>
+                <h3>Digital Transformation at Allianz France</h3>
+                <p>Product Owner of the digital roadmap, deployment of iOS applications to 2,000 agents, measurable user experience improvement and rapid adoption</p>
             </div>
         </div>
     </section>
@@ -1078,7 +841,7 @@
                 <span class="experience-company">Roni Conseil (Incorporation)</span>
                 <span class="experience-period">2025 - Present</span>
             </div>
-            <h3>Consultant en solutions numériques – Banque, Finance, Assurances</h3>
+            <h3>Digital Solutions Consultant – Banking, Finance, Insurance</h3>
         </div>
 
         <div class="experience-item fade-in">
@@ -1088,12 +851,12 @@
             </div>
             <h3>Business Analyst - Laboratoire d'innovation</h3>
             <ul class="experience-list">
-                <li><strong>Leadership de programmes d'innovation stratégique :</strong> Appropriation complète de programmes d'innovation complexes, analyse approfondie des objectifs stratégiques, identification des enjeux technologiques et d'affaires, alignement des initiatives avec la vision organisationnelle</li>
-                <li><strong>Analyse et optimisation de processus :</strong> Cartographie détaillée des processus d'affaires actuels et cibles, identification des inefficacités et opportunités d'amélioration, documentation des flux de travail complexes impliquant plusieurs domaines d'affaires</li>
-                <li><strong>Facilitation et workshop facilitation stratégiques :</strong> Animation d'ateliers bilingues (français/anglais) avec parties prenantes de haut niveau, collecte et synthèse de besoins complexes, documentation rigoureuse des requis fonctionnels et techniques, validation des exigences avec les domaines concernés</li>
-                <li><strong>Coordination agile multi-équipes :</strong> Collaboration étroite avec toutes les équipes du laboratoire d'innovation (développement, UX, architecture, opérations), facilitation de la communication entre domaines techniques et d'affaires, support à la priorisation et planification des initiatives en contexte agile</li>
-                <li><strong>Rédaction de récits d'utilisation et spécifications :</strong> Création de user stories détaillées, rédaction de critères d'acceptation clairs, documentation de cas d'usage et scénarios d'utilisation, support à la conception de solutions innovantes</li>
-                <li><strong>Gestion des parties prenantes :</strong> Communication proactive avec les sponsors exécutifs et parties prenantes clés, presentation de strategic recommendations, gestion des attentes et résolution de conflits, alignement des objectifs entre domaines d'affaires</li>
+                <li><strong>Strategic innovation program leadership:</strong> Full ownership of complex innovation programs, in-depth strategic objectives analysis, identification of technological and business issues, initiative alignment with organizational vision</li>
+                <li><strong>Process analysis and optimization:</strong> Detailed mapping of current and target business processes, identification of inefficiencies and improvement opportunities, documentation of complex workflows involving multiple business domains</li>
+                <li><strong>Strategic workshop facilitation:</strong> Bilingual workshop facilitation (French/English) with senior stakeholders, complex requirements gathering and synthesis, rigorous functional and technical requirements documentation, requirements validation with relevant domains</li>
+                <li><strong>Multi-team agile coordination:</strong> Close collaboration with all innovation lab teams (development, UX, architecture, operations), facilitation of communication between technical and business domains, support for initiative prioritization and planning in agile context</li>
+                <li><strong>User story and specification writing:</strong> Detailed user story creation, clear acceptance criteria writing, use case and usage scenario documentation, support for innovative solution design</li>
+                <li><strong>Stakeholder management:</strong> Proactive communication with executive sponsors and key stakeholders, presentation of strategic recommendations, expectations management and conflict resolution, alignment of objectives across business domains</li>
             </ul>
         </div>
 
@@ -1106,14 +869,14 @@
             
             <h4>Architecture Advisor - GPAP Transformation Program</h4>
             <ul class="experience-list">
-                <li>Diagnostic stratégique des flux de valeur de la manufacture de produits (épargne à terme, PGLM, BLM, fonds communs)</li>
-                <li>Cartographie complète des capacités à risque et recommandations d'initiatives prioritaires</li>
+                <li>Strategic value stream diagnostic for product manufacturing (term savings, PGLM, BLM, mutual funds)</li>
+                <li>Complete mapping of at-risk capabilities and priority initiative recommendations</li>
                 <li>Business analysis leadership for rate product launches for specialized networks</li>
             </ul>
 
             <h4>Trainer - Wealth Management 101</h4>
             <ul class="experience-list">
-                <li>Education de 100+ professionnels aux fondamentaux de la gestion de patrimoine depuis 2022</li>
+                <li>Training 100+ professionals in wealth management fundamentals since 2022</li>
             </ul>
 
             <h4>Business Analyst - Strategic Projects</h4>
@@ -1130,23 +893,23 @@
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
-                <span class="experience-company">Allianz FRnce</span>
+                <span class="experience-company">Allianz France</span>
                 <span class="experience-period">2014-2018</span>
             </div>
-            <h3>Product Owner & Responsable Projet</h3>
+            <h3>Product Owner & Project Manager</h3>
             
-            <h4>Virage numérique de l'entreprise</h4>
+            <h4>Corporate Digital Transformation</h4>
             <ul class="experience-list">
-                <li>Pilotage de la feuille de route digitale : récits d'utilisation, conception de parcours, prototyping</li>
-                <li>Cadrage et exécution de tests d'ergonomie pré-développement, continuous improvement</li>
+                <li>Digital roadmap leadership : user stories, journey design, prototyping</li>
+                <li>Pre-development usability testing scoping and execution, continuous improvement</li>
                 <li>Change Management : tutorials, educational videos, training</li>
             </ul>
 
-            <h4>Application iPad MAX Tablettes Agents</h4>
+            <h4>MAX Agent Tablets iPad Application</h4>
             <ul class="experience-list">
-                <li>Déploiement auprès de 2 000 agents généraux et préventionnistes</li>
-                <li>Gestion complète du cycle de vie produit en méthodologie Agile</li>
-                <li>Coordination multi-parties prenantes (juridique, distribution, marketing, architecture)</li>
+                <li>Deployment to 2,000 general agents and loss prevention specialists</li>
+                <li>Complete product lifecycle management using Agile methodology</li>
+                <li>Multi-stakeholder coordination (legal, distribution, marketing, architecture)</li>
             </ul>
         </div>
 
@@ -1155,22 +918,22 @@
                 <span class="experience-company">ING Direct</span>
                 <span class="experience-period">2011-2013</span>
             </div>
-            <h3>Business Analyst & Chargé de projet</h3>
+            <h3>Business Analyst & Project Manager</h3>
             <ul class="experience-list">
-                <li>Feuille de route solutions mobiles iOS et Android : spécifications fonctionnelles détaillées</li>
-                <li>Conception et tests de services Web (SOAP UI) et API REST pour applications bancaires</li>
+                <li>iOS and Android mobile solutions roadmap : detailed functional specifications</li>
+                <li>Web services design and testing (SOAP UI) and REST API for banking applications</li>
             </ul>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
-                <span class="experience-company">Generali FRnce</span>
+                <span class="experience-company">Generali France</span>
                 <span class="experience-period">2008-2011</span>
             </div>
             <h3>Business Analyst</h3>
             <ul class="experience-list">
-                <li>Programme Web et mobile : workshop facilitation, specifications writing fonctionnelles</li>
-                <li>Recette fonctionnelle, automatisation de tests sous Selenium</li>
+                <li>Web and mobile program : workshop facilitation, functional specifications writing</li>
+                <li>Functional testing, test automation using Selenium</li>
             </ul>
         </div>
 
@@ -1181,8 +944,8 @@
             </div>
             <h3>Business Analyst</h3>
             <ul class="experience-list">
-                <li>Table de mortalité - Service de rentes : collecte de besoins multi-métiers</li>
-                <li>Cartographie de processus d'affaires, étude d'impacts applicatifs</li>
+                <li>Mortality table - Annuity Service : multi-business requirements gathering</li>
+                <li>Business process mapping, application impact study</li>
             </ul>
         </div>
     </section>
@@ -1191,12 +954,12 @@
     <section class="section section-alternate" id="formation">
         <div class="section-header fade-in">
             <div class="section-tag">Education</div>
-            <h2 class="section-title">Parcours académique</h2>
+            <h2 class="section-title">Academic Background</h2>
         </div>
         <div class="education-grid">
             <div class="education-item fade-in">
                 <strong>Certificat de planification financière (Pl.Fin.)</strong>
-                <p>HEC Montreal (in progress - complété en 2027)</p>
+                <p>HEC Montreal (in progress - completed in 2027)</p>
             </div>
             <div class="education-item fade-in">
                 <strong>Diploma UX Design</strong>
@@ -1204,7 +967,7 @@
             </div>
             <div class="education-item fade-in">
                 <strong>Master Finance de marché et gestion de patrimoine</strong>
-                <p>Conservatoire national des arts et métiers, Paris (2008)</p>
+                <p>National Conservatory of Arts and Crafts, Paris (2008)</p>
             </div>
             <div class="education-item fade-in">
                 <strong>Titre de responsable de gestion</strong>
@@ -1255,7 +1018,7 @@
                 <p>Unitrax, Global+, tenue de registres</p>
             </div>
             <div class="skill-category fade-in">
-                <h3>Méthodologies</h3>
+                <h3>Methodologies</h3>
                 <p>Agile Scrum, SAFe, Design Thinking, Lean</p>
             </div>
             <div class="skill-category fade-in">
@@ -1332,54 +1095,7 @@
     </section>
 
 
-    <!-- Contact Form Section -->
-    <section class="section" id="contact-form">
-        <div class="section-header">
-            <div class="section-tag">Contact</div>
-            <h2 class="section-title">Send Me a Message</h2>
-        </div>
-        <div class="contact-form-container">
-            <p style="color: var(--dune); opacity: 0.7; margin-bottom: 2rem;">Share your project details and I will respond as soon as possible.</p>
-            
-            <form action="mailto:jeremy@roniconseil.com" method="post" enctype="text/plain" class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="Name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="Email" placeholder="your@email.com" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="Company" placeholder="Your company name">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="Phone" placeholder="438 XXX XXXX">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="Subject" placeholder="Digital transformation, architecture consulting, etc." required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="Message" rows="6" placeholder="Describe your project, needs, and objectives..." required></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer / Contact -->
+        <!-- Footer / Contact -->
     <footer class="footer" id="contact">
         <div class="footer-content">
             <h2>Let's Discuss Your Project</h2>
@@ -1400,7 +1116,7 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation Menu
         const navMenu = document.getElementById('navMenu');
         const navToggle = document.getElementById('navToggle');
@@ -1441,11 +1157,3 @@
                     const offsetTop = targetSection.offsetTop - 80;
                     window.scrollTo({
                         top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Highlight active section in navigation
-        const sections = document.querySelectorAll('section[id]');
