@@ -963,11 +963,45 @@
     </style>
 </head>
 <body>
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-                    <a href="index.html" class="lang-button active">FR</a>
-                    <a href="index_en.html" class="lang-button">EN</a>
-                </div>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <span class="brand-name">Jeremy Zaghdoun</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#profil" class="nav-link">Profil</a></li>
+                <li><a href="#realisations" class="nav-link">Réalisations</a></li>
+                <li><a href="#experience" class="nav-link">Expérience</a></li>
+                <li><a href="#formation" class="nav-link">Formation</a></li>
+                <li><a href="#a-propos" class="nav-link">À propos</a></li>
+                <li><a href="#expertises" class="nav-link">Expertises</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-tag">Expert en transformation numérique</div>
+            <h1>Jeremy<br>Zaghdoun</h1>
+            <p class="hero-subtitle">Analyste d'affaires | Conseiller en architecture | Product Owner</p>
+            <div class="hero-contact">
+                <div class="contact-item">438 504 5142</div>
+                <div class="contact-item"><a href="mailto:jeremy@roniconseil.com">jeremy@roniconseil.com</a></div>
+                <div class="contact-item">Montréal, Québec, Canada</div>
+            </div>
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <a href="index.html" class="lang-button active">FR</a>
+                <a href="index_en.html" class="lang-button">EN</a>
             </div>
             <div class="cta-buttons">
                 <a href="#contact" class="cta-button">Discutons de votre projet</a>
@@ -1420,4 +1454,3 @@
             let current = '';
             
             sections.forEach(section => {
-              
