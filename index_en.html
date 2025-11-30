@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeremy Zaghdoun - Conseiller en architecture & Product Owner</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Jeremy Zaghdoun - Architecture Advisor & Product Owner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dune: #32302F;
-            --white: #FFFFFF;
-            --accent-orange: #ed603c;
-            --teal-dark: #3e5b5e;
-            --teal-light: #83a6a8;
-            --yellow: #f6ba40;
-            --bg-light: #fafafa;
-            --bg-subtle: #f5f5f5;
+            --bg-primary: #0A0A0A;
+            --bg-secondary: #111111;
+            --bg-elevated: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B4B4B4;
+            --text-tertiary: #666666;
+            --accent-primary: #5E6AD2;
+            --accent-secondary: #7B68EE;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-medium: rgba(255, 255, 255, 0.12);
+            --glow-violet: rgba(94, 106, 210, 0.3);
         }
 
         * {
@@ -24,40 +27,11 @@
         }
 
         body {
-            font-family: 'Instrument Sans', -apple-system, sans-serif;
-            background: var(--bg-light);
-            color: var(--dune);
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-        }
-
-        /* Language Switcher */
-        .lang-switcher {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .lang-button {
-            padding: 0.5rem 1rem;
-            background: none;
-            border: 2px solid var(--dune);
-            border-radius: 20px;
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--dune);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .lang-button:hover,
-        .lang-button.active {
-            background: var(--accent-orange);
-            color: var(--white);
-            border-color: var(--accent-orange);
         }
 
         /* Navigation Menu */
@@ -66,10 +40,10 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(10, 10, 10, 0.96);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(50, 48, 47, 0.1);
+            border-bottom: 1px solid var(--border-subtle);
             padding: 1rem 5%;
             transform: translateY(-100%);
             transition: transform 0.3s ease;
@@ -88,34 +62,35 @@
         }
 
         .nav-logo {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.25rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--dune);
+            color: var(--text-primary);
             text-decoration: none;
+            letter-spacing: 0.04em;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
             font-weight: 500;
-            color: var(--dune);
+            color: var(--text-secondary);
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 20px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            background: var(--accent-orange);
-            color: var(--white);
+            background: rgba(94, 106, 210, 0.15);
+            color: var(--text-primary);
         }
 
         .nav-toggle {
@@ -128,12 +103,47 @@
 
         .nav-toggle span {
             display: block;
-            width: 25px;
-            height: 3px;
-            background: var(--dune);
-            margin: 5px 0;
+            width: 22px;
+            height: 2px;
+            background: var(--text-primary);
+            margin: 4px 0;
             transition: all 0.3s ease;
             border-radius: 3px;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .lang-button {
+            padding: 0.4rem 0.9rem;
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            border-radius: 999px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .lang-button:hover {
+            border-color: var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        .lang-button.active {
+            background: var(--accent-primary);
+            color: var(--text-primary);
+            border-color: var(--accent-primary);
         }
 
         /* Hero Section */
@@ -141,27 +151,10 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 6rem 5%;
-            background: var(--bg-light);
+            padding: 6.5rem 5% 5rem;
+            background: radial-gradient(circle at top right, rgba(94,106,210,0.14), transparent 55%) var(--bg-primary);
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 70%;
-            height: 140%;
-            background: radial-gradient(circle, rgba(237, 96, 60, 0.08) 0%, transparent 70%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(30px, -30px) rotate(5deg); }
-            66% { transform: translate(-20px, 20px) rotate(-5deg); }
         }
 
         .hero-content {
@@ -172,188 +165,165 @@
         }
 
         .hero-tag {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 0.875rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent-orange);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            animation: slideUp 0.8s ease-out 0.2s forwards;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            letter-spacing: 0.16em;
+            color: var(--accent-primary);
+            margin-bottom: 1.3rem;
         }
 
         .hero h1 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.2rem);
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            opacity: 0;
-            animation: slideUp 0.8s ease-out 0.4s forwards;
+            line-height: 1.05;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.03em;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-size: clamp(1.2rem, 2.3vw, 1.6rem);
             font-weight: 500;
-            color: var(--teal-dark);
+            color: var(--text-secondary);
             margin-bottom: 2rem;
-            max-width: 700px;
-            opacity: 0;
-            animation: slideUp 0.8s ease-out 0.6s forwards;
+            max-width: 640px;
         }
 
         .hero-contact {
             display: flex;
             gap: 2rem;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: slideUp 0.8s ease-out 0.8s forwards;
+            margin-bottom: 2.5rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 1rem;
-            color: var(--dune);
+            font-size: 0.98rem;
+            color: var(--text-secondary);
         }
 
         .contact-item::before {
             content: '●';
-            color: var(--accent-orange);
-            font-size: 0.5rem;
+            color: var(--accent-primary);
+            font-size: 0.45rem;
+        }
+
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--text-primary);
         }
 
         .cta-buttons {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
-            opacity: 0;
-            animation: slideUp 0.8s ease-out 1s forwards;
         }
 
         .cta-button {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 1rem 2.5rem;
-            background: var(--accent-orange);
-            color: var(--white);
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1rem;
+            padding: 0.95rem 2.3rem;
+            background: var(--accent-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 100px;
-            transition: all 0.3s ease;
+            border-radius: 999px;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
         }
 
         .cta-button:hover {
-            background: var(--dune);
+            background: var(--text-primary);
+            color: var(--bg-primary);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(237, 96, 60, 0.3);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
         }
 
         .cta-button-secondary {
-            background: var(--bg-light);
-            color: var(--dune);
-            border: 2px solid var(--dune);
+            background: transparent;
+            color: var(--text-primary);
+            border-color: var(--border-medium);
         }
 
         .cta-button-secondary:hover {
-            background: var(--dune);
-            color: var(--white);
-            border-color: var(--dune);
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border-color: var(--accent-primary);
         }
 
         /* Section Container */
         .section {
-            padding: 6rem 5%;
+            padding: 5rem 5%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-alternate {
-            background: var(--bg-light);
+            background: radial-gradient(circle at top left, rgba(94,106,210,0.12), transparent 55%) var(--bg-secondary);
         }
 
         .section-header {
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-tag {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 0.875rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent-orange);
-            margin-bottom: 1rem;
+            letter-spacing: 0.16em;
+            color: var(--accent-primary);
+            margin-bottom: 0.9rem;
         }
 
         .section-title {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 800;
             line-height: 1.2;
             letter-spacing: -0.02em;
         }
 
+        .section-description {
+            margin-top: 0.75rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+        }
+
         /* Profile Section */
         .profile-content {
-            font-size: 1.25rem;
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.9;
             max-width: 900px;
-            color: var(--dune);
+            color: var(--text-secondary);
         }
 
         .profile-content strong {
-            color: var(--accent-orange);
+            color: var(--text-primary);
             font-weight: 600;
         }
 
         /* About Roni Section */
         .about-roni {
-            background: linear-gradient(135deg, var(--teal-dark) 0%, var(--dune) 100%);
-            color: var(--white);
+            background: radial-gradient(circle at top right, rgba(94,106,210,0.22), transparent 55%) linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            color: var(--text-primary);
             position: relative;
             overflow: hidden;
         }
 
-        .about-roni::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 70%;
-            height: 140%;
-            background: radial-gradient(circle, rgba(237, 96, 60, 0.15) 0%, transparent 70%);
-        }
-
-        .about-roni .section-header {
-            position: relative;
-            z-index: 1;
-        }
-
         .about-roni .section-tag {
-            color: var(--yellow);
-        }
-
-        .about-roni .section-title {
-            color: var(--white);
+            color: var(--accent-secondary);
         }
 
         .about-roni-content {
@@ -363,61 +333,62 @@
         }
 
         .about-roni-story {
-            font-size: 1.25rem;
-            line-height: 1.8;
+            font-size: 1.05rem;
+            line-height: 1.9;
             margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.95);
+            color: var(--text-secondary);
         }
 
         .about-roni-highlight {
-            background: rgba(237, 96, 60, 0.2);
+            background: rgba(15, 15, 15, 0.85);
             padding: 2rem;
             border-radius: 16px;
-            border-left: 4px solid var(--accent-orange);
-            margin-top: 2rem;
+            border: 1px solid var(--border-medium);
+            margin-top: 1.5rem;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.6);
         }
 
         .about-roni-highlight h3 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--white);
+            color: var(--text-primary);
         }
 
         .about-roni-highlight p {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
         }
 
         /* Expertise Cards */
         .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
 
         .expertise-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
+            background: var(--bg-elevated);
+            padding: 2.3rem;
             border-radius: 16px;
-            border: 1px solid rgba(50, 48, 47, 0.1);
-            transition: all 0.3s ease;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.25s ease;
         }
 
         .expertise-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(50, 48, 47, 0.1);
-            border-color: var(--accent-orange);
+            transform: translateY(-6px);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+            border-color: var(--accent-primary);
         }
 
         .expertise-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent-orange), var(--yellow));
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
+            width: 44px;
+            height: 44px;
+            background: radial-gradient(circle at 30% 20%, var(--accent-secondary), var(--accent-primary));
+            border-radius: 14px;
+            margin-bottom: 1.3rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -425,16 +396,17 @@
         }
 
         .expertise-card h3 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             line-height: 1.3;
         }
 
         .expertise-card p {
-            color: var(--teal-dark);
-            line-height: 1.7;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 0.98rem;
         }
 
         /* Achievement Cards */
@@ -445,169 +417,258 @@
         }
 
         .achievement-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
+            background: var(--bg-elevated);
+            padding: 2.3rem;
             border-radius: 16px;
-            border-left: 4px solid var(--accent-orange);
-            box-shadow: 0 4px 20px rgba(50, 48, 47, 0.05);
-            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-primary);
+            border-top: 1px solid var(--border-subtle);
+            border-right: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+            transition: all 0.25s ease;
         }
 
         .achievement-card:hover {
-            transform: translateX(8px);
-            box-shadow: 0 8px 30px rgba(50, 48, 47, 0.1);
+            transform: translateX(6px);
+            box-shadow: 0 18px 55px rgba(0,0,0,0.7);
         }
 
         .achievement-card h3 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--dune);
+            margin-bottom: 0.7rem;
+            color: var(--text-primary);
         }
 
         .achievement-card p {
-            color: var(--teal-dark);
-            line-height: 1.7;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 0.98rem;
         }
 
         /* Experience Timeline */
         .experience-item {
-            margin-bottom: 4rem;
-            padding-left: 2rem;
-            border-left: 2px solid var(--bg-subtle);
+            margin-bottom: 3.5rem;
+            padding-left: 1.8rem;
+            border-left: 2px solid var(--border-subtle);
             position: relative;
         }
 
         .experience-item::before {
             content: '';
             position: absolute;
-            left: -6px;
+            left: -7px;
             top: 0;
             width: 12px;
             height: 12px;
-            background: var(--accent-orange);
-            border-radius: 50%;
+            background: var(--accent-primary);
+            border-radius: 999px;
+            box-shadow: 0 0 0 6px rgba(94,106,210,0.25);
         }
 
         .experience-meta {
             display: flex;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem;
             flex-wrap: wrap;
         }
 
         .experience-company {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 0.875rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-orange);
+            letter-spacing: 0.14em;
+            color: var(--accent-primary);
         }
 
         .experience-period {
-            font-size: 0.875rem;
-            color: var(--teal-light);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
 
         .experience-item h3 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.75rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.35rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             line-height: 1.3;
         }
 
         .experience-item h4 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.25rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
             font-weight: 600;
-            margin: 1.5rem 0 1rem;
-            color: var(--teal-dark);
+            margin: 1.3rem 0 0.8rem;
+            color: var(--accent-primary);
         }
 
         .experience-list {
             list-style: none;
-            margin-top: 1rem;
+            margin-top: 0.2rem;
         }
 
         .experience-list li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
+            padding-left: 1.4rem;
+            margin-bottom: 0.7rem;
             position: relative;
-            color: var(--dune);
+            color: var(--text-secondary);
+            font-size: 0.98rem;
         }
 
         .experience-list li::before {
             content: '→';
             position: absolute;
             left: 0;
-            color: var(--accent-orange);
+            color: var(--accent-primary);
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         /* Education & Certifications */
         .education-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.7rem;
         }
 
         .education-item {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(50, 48, 47, 0.1);
+            background: var(--bg-elevated);
+            padding: 1.8rem;
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
         }
 
         .education-item strong {
             display: block;
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dune);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.02rem;
+            font-weight: 650;
+            margin-bottom: 0.45rem;
+            color: var(--text-primary);
         }
 
         .education-item p {
-            color: var(--teal-dark);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            font-size: 0.93rem;
+            line-height: 1.7;
         }
 
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 1.8rem;
         }
 
         .skill-category {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid rgba(50, 48, 47, 0.1);
+            background: var(--bg-elevated);
+            padding: 1.8rem;
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
         }
 
         .skill-category h3 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--accent-orange);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 650;
+            margin-bottom: 0.8rem;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         .skill-category p {
-            color: var(--dune);
+            color: var(--text-secondary);
             line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-form-header .section-description {
+            margin: 0.8rem auto 0;
+            max-width: 520px;
+        }
+
+        .contact-form {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 18px;
+            padding: 2.5rem;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.65);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .form-group label {
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 9px;
+            padding: 0.8rem 0.95rem;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.93rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px var(--glow-violet);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .cta-button {
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.8rem;
         }
 
         /* Footer */
         .footer {
-            background: var(--dune);
-            color: var(--white);
-            padding: 4rem 5%;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 3.5rem 5% 3rem;
             text-align: center;
         }
 
@@ -617,35 +678,45 @@
         }
 
         .footer h2 {
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-size: 2.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 2.1rem;
             font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            color: var(--text-secondary);
         }
 
         .footer-contact {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 2.8rem;
             margin-top: 2rem;
             flex-wrap: wrap;
         }
 
         .footer-contact a {
-            color: var(--white);
+            color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.125rem;
+            font-size: 1rem;
             transition: color 0.3s ease;
         }
 
         .footer-contact a:hover {
-            color: var(--accent-orange);
+            color: var(--accent-primary);
         }
 
         /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                padding-top: 6rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero {
-                padding: 4rem 5%;
+                padding: 5.5rem 5% 3.5rem;
             }
 
             .section {
@@ -654,28 +725,22 @@
 
             .hero-contact {
                 flex-direction: column;
-                gap: 1rem;
-            }
-
-            .expertise-grid,
-            .education-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
+                gap: 0.9rem;
             }
 
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 64px;
                 left: 0;
                 right: 0;
-                background: var(--bg-light);
+                background: rgba(10, 10, 10, 0.98);
                 flex-direction: column;
                 gap: 0;
-                padding: 1rem 0;
-                border-bottom: 1px solid rgba(50, 48, 47, 0.1);
-                transform: translateY(-100%);
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 20px rgba(50, 48, 47, 0.1);
+                padding: 0.6rem 0 0.9rem;
+                border-bottom: 1px solid var(--border-subtle);
+                transform: translateY(-120%);
+                opacity: 0;
+                transition: all 0.25s ease;
             }
 
             .nav-links.active {
@@ -684,7 +749,7 @@
             }
 
             .nav-links a {
-                padding: 1rem 5%;
+                padding: 0.75rem 5%;
                 border-radius: 0;
                 display: block;
             }
@@ -694,7 +759,7 @@
             }
 
             .nav-toggle.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
+                transform: rotate(45deg) translate(4px, 4px);
             }
 
             .nav-toggle.active span:nth-child(2) {
@@ -702,7 +767,16 @@
             }
 
             .nav-toggle.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(7px, -6px);
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .contact-form {
+                padding: 2rem 1.6rem;
             }
         }
 
@@ -714,82 +788,14 @@
         /* Intersection Observer animations */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(26px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-    
-        /* Contact Form */
-        .contact-form-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .contact-form {
-            background: var(--bg-subtle);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(50,48,47,0.1);
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            font-family: 'Cabinet Grotesk', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--dune);
-            margin-bottom: 0.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            background: var(--white);
-            border: 1px solid rgba(50,48,47,0.15);
-            border-radius: 8px;
-            font-family: 'Instrument Sans', sans-serif;
-            font-size: 0.9375rem;
-            color: var(--dune);
-            transition: border-color 0.2s ease;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-orange);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                padding: 1.5rem;
-            }
-        }
-
     </style>
 </head>
 <body>
@@ -797,17 +803,17 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">Jeremy Zaghdoun · Roni Conseil</a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#profil" class="nav-link">Profil</a></li>
-                <li><a href="#realisations" class="nav-link">Réalisations</a></li>
-                <li><a href="#experience" class="nav-link">Expérience</a></li>
-                <li><a href="#formation" class="nav-link">Formation</a></li>
-                <li><a href="#apropos" class="nav-link">À propos</a></li>
-                <li><a href="#expertises" class="nav-link">Expertises</a></li>
+                <li><a href="#profil" class="nav-link">Profile</a></li>
+                <li><a href="#realisations" class="nav-link">Achievements</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#formation" class="nav-link">Education</a></li>
+                <li><a href="#apropos" class="nav-link">About Roni</a></li>
+                <li><a href="#expertises" class="nav-link">Expertise</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="lang-switcher">
-                <a href="index.html" class="lang-button active">FR</a>
-                <a href="index_en.html" class="lang-button">EN</a>
+                <a href="index.html" class="lang-button">FR</a>
+                <a href="index_en.html" class="lang-button active">EN</a>
             </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span>
@@ -819,26 +825,26 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-tag">Expert en transformation numérique</div>
+            <div class="hero-tag">Digital transformation expert</div>
             <h1>Jeremy<br>Zaghdoun</h1>
-            <p class="hero-subtitle">Analyste d'affaires | Conseiller en architecture | Product Owner</p>
+            <p class="hero-subtitle">Business Analyst | Architecture Advisor | Product Owner</p>
             <div class="hero-contact">
                 <div class="contact-item">438 504 5142</div>
                 <div class="contact-item"><a href="mailto:jeremy@roniconseil.com">jeremy@roniconseil.com</a></div>
-                <div class="contact-item">Montréal, QC</div>
+                <div class="contact-item">Montreal, QC</div>
             </div>
             <div class="cta-buttons">
-                <a href="#contact" class="cta-button">Discutons de votre projet</a>
-                <a href="CV_JEREMY_ZAGHDOUN_2025.pdf" download class="cta-button cta-button-secondary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <a href="#contact" class="cta-button">Let's discuss your project</a>
+                <a href="CV_JEREMY_ZAGHDOUN_2025_EN.pdf" download class="cta-button cta-button-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
                         <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
-                    Télécharger le CV (PDF)
+                    Download résumé (PDF)
                 </a>
-                <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" rel="noopener noreferrer" class="cta-button cta-button-secondary" title="Profil LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" rel="noopener noreferrer" class="cta-button cta-button-secondary" title="LinkedIn profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                     LinkedIn
@@ -849,185 +855,185 @@
 
     <section class="section" id="profil">
         <div class="section-header fade-in">
-            <div class="section-tag">À propos</div>
-            <h2 class="section-title">Profil professionnel</h2>
+            <div class="section-tag">About</div>
+            <h2 class="section-title">Professional profile</h2>
         </div>
         <div class="profile-content fade-in">
-            <p>Expert en transformation numérique avec <strong>plus de 20 ans d'expérience</strong> dans les secteurs bancaire, assurantiel et de la gestion de patrimoine. Spécialiste reconnu en conception de solutions d'affaires complexes, combinant une expertise approfondie des produits financiers avec une maîtrise des méthodologies agiles et de l'expérience utilisateur.</p>
+            <p>Digital transformation expert with <strong>over 20 years of experience</strong> in banking, insurance, and wealth management. Recognized specialist in the design of complex business solutions, combining deep expertise in financial products with strong command of agile methodologies and user experience.</p>
             <br>
-            <p>Capacité démontrée à intervenir sur des programmes de transformation stratégique majeurs, de l'analyse des besoins à la livraison de solutions innovantes générant une valeur mesurable.</p>
+            <p>Proven ability to intervene on large-scale strategic transformation programs, from needs analysis through to the delivery of innovative solutions that generate measurable value.</p>
         </div>
     </section>
 
     <section class="section section-alternate" id="realisations">
         <div class="section-header fade-in">
             <div class="section-tag">Impact</div>
-            <h2 class="section-title">Réalisations marquantes</h2>
+            <h2 class="section-title">Key achievements</h2>
         </div>
         <div class="achievements-list">
             <div class="achievement-card fade-in">
-                <h3>Programme d'innovation stratégique à la Banque Nationale</h3>
-                <p>Analyse et structuration de programmes d'innovation majeurs, cartographie de processus complexes impliquant multiples domaines d'affaires, animation d'ateliers bilingues stratégiques, coordination agile avec l'ensemble des équipes du laboratoire d'innovation</p>
+                <h3>Strategic innovation programs at National Bank</h3>
+                <p>Analysis and structuring of major innovation programs, mapping of complex processes involving multiple business domains, facilitation of strategic bilingual workshops, and agile coordination across all innovation lab teams.</p>
             </div>
             <div class="achievement-card fade-in">
-                <h3>Transformation de la manufacture de produits chez Desjardins</h3>
-                <p>Diagnostic complet des flux de valeur pour les fonds communs de placements, FNB, épargnes à terme et PGLM, identification des capacités à risque, proposition d'initiatives stratégiques générant des gains d'efficacité significatifs</p>
+                <h3>Product manufacturing transformation at Desjardins</h3>
+                <p>End-to-end diagnostic of value streams for mutual funds, ETFs, term investments, and market-linked GICs (PGLM), identification of at-risk capabilities, and proposal of strategic initiatives generating significant efficiency gains.</p>
             </div>
             <div class="achievement-card fade-in">
-                <h3>Migration technologique d'envergure (FMS vers Unitrax)</h3>
-                <p>Pilotage de la migration complète incluant stratégies d'essais, coordination technique, documentation processus, réduction du risque opérationnel et conformité réglementaire</p>
+                <h3>Large-scale migration from FMS to Unitrax</h3>
+                <p>Leadership of the full migration, including testing strategy, technical coordination, process documentation, and reduction of operational risk while ensuring regulatory compliance.</p>
             </div>
             <div class="achievement-card fade-in">
-                <h3>Formation de 100+ professionnels en gestion de patrimoine</h3>
-                <p>Conception et animation du programme « Gestion de patrimoine 101 » couvrant acteurs du système financier, régulation, instruments et classes d'actifs</p>
+                <h3>Training over 100 wealth management professionals</h3>
+                <p>Design and facilitation of the “Wealth Management 101” program, covering financial system players, regulation, instruments, and asset classes.</p>
             </div>
             <div class="achievement-card fade-in">
-                <h3>Virage numérique chez Allianz France</h3>
-                <p>Product Owner de la feuille de route digitale, déploiement d'applications iOS auprès de 2 000 agents, amélioration mesurable de l'expérience utilisateur et adoption rapide</p>
+                <h3>Digital shift at Allianz France</h3>
+                <p>Product Owner for the digital roadmap, deployment of iOS applications to 2,000 agents, with measurable improvements in user experience and rapid adoption.</p>
             </div>
         </div>
     </section>
 
     <section class="section" id="experience">
         <div class="section-header fade-in">
-            <div class="section-tag">Parcours</div>
-            <h2 class="section-title">Expérience professionnelle</h2>
+            <div class="section-tag">Journey</div>
+            <h2 class="section-title">Professional experience</h2>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
                 <span class="experience-company">Roni Conseil (Incorporation)</span>
-                <span class="experience-period">2025 - Présent</span>
+                <span class="experience-period">2025 – Present</span>
             </div>
-            <h3>Consultant en solutions numériques – Banque, Finance, Assurances</h3>
+            <h3>Consultant in digital solutions – Banking, Finance, Insurance</h3>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
-                <span class="experience-company">Banque Nationale (via We+)</span>
-                <span class="experience-period">2025 - Présent</span>
+                <span class="experience-company">National Bank (via We+)</span>
+                <span class="experience-period">2025 – Present</span>
             </div>
-            <h3>Analyste d'affaires - Laboratoire d'innovation</h3>
+            <h3>Business Analyst – Innovation Lab</h3>
             <ul class="experience-list">
-                <li><strong>Leadership de programmes d'innovation stratégique :</strong> Appropriation complète de programmes d'innovation complexes, analyse approfondie des objectifs stratégiques, identification des enjeux technologiques et d'affaires, alignement des initiatives avec la vision organisationnelle</li>
-                <li><strong>Analyse et optimisation de processus :</strong> Cartographie détaillée des processus d'affaires actuels et cibles, identification des inefficacités et opportunités d'amélioration, documentation des flux de travail complexes impliquant plusieurs domaines d'affaires</li>
-                <li><strong>Facilitation et animation d'ateliers stratégiques :</strong> Animation d'ateliers bilingues (français/anglais) avec parties prenantes de haut niveau, collecte et synthèse de besoins complexes, documentation rigoureuse des requis fonctionnels et techniques, validation des exigences avec les domaines concernés</li>
-                <li><strong>Coordination agile multi-équipes :</strong> Collaboration étroite avec toutes les équipes du laboratoire d'innovation (développement, UX, architecture, opérations), facilitation de la communication entre domaines techniques et d'affaires, support à la priorisation et planification des initiatives en contexte agile</li>
-                <li><strong>Rédaction de récits d'utilisation et spécifications :</strong> Création de user stories détaillées, rédaction de critères d'acceptation clairs, documentation de cas d'usage et scénarios d'utilisation, support à la conception de solutions innovantes</li>
-                <li><strong>Gestion des parties prenantes :</strong> Communication proactive avec les sponsors exécutifs et parties prenantes clés, présentation de recommandations stratégiques, gestion des attentes et résolution de conflits, alignement des objectifs entre domaines d'affaires</li>
+                <li><strong>Leadership of strategic innovation programs:</strong> Full ownership of complex innovation programs, in-depth analysis of strategic objectives, identification of business and technology issues, and alignment of initiatives with organizational vision.</li>
+                <li><strong>Process analysis and optimization:</strong> Detailed mapping of current and target business processes, identification of inefficiencies and improvement opportunities, documentation of complex workflows involving multiple business domains.</li>
+                <li><strong>Facilitation of strategic workshops:</strong> Bilingual (French/English) workshop facilitation with senior stakeholders, collection and synthesis of complex needs, rigorous documentation of functional and technical requirements, and validation with impacted domains.</li>
+                <li><strong>Agile coordination across multiple teams:</strong> Close collaboration with all innovation lab teams (development, UX, architecture, operations), facilitation of communication between business and technical domains, support for prioritization and planning of initiatives in an agile context.</li>
+                <li><strong>User stories and specifications:</strong> Creation of detailed user stories, definition of clear acceptance criteria, documentation of use cases and scenarios, and support in the design of innovative solutions.</li>
+                <li><strong>Stakeholder management:</strong> Proactive communication with executive sponsors and key stakeholders, presentation of strategic recommendations, management of expectations and conflict resolution, and alignment of objectives across business domains.</li>
             </ul>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
                 <span class="experience-company">CGI (Desjardins GPAP)</span>
-                <span class="experience-period">2018-2025</span>
+                <span class="experience-period">2018 – 2025</span>
             </div>
-            <h3>Directeur Conseil Expert</h3>
+            <h3>Director, Expert Consultant</h3>
             
-            <h4>Conseiller en architecture - Programme de transformation GPAP</h4>
+            <h4>Architecture Advisor – GPAP Transformation Program</h4>
             <ul class="experience-list">
-                <li>Diagnostic stratégique des flux de valeur de la manufacture de produits (épargne à terme, PGLM, BLM, fonds communs)</li>
-                <li>Cartographie complète des capacités à risque et recommandations d'initiatives prioritaires</li>
-                <li>Leadership de l'analyse d'affaires pour le lancement de produits de taux destinés aux réseaux spécialisés</li>
+                <li>Strategic diagnostic of product manufacturing value streams (term investments, market-linked GICs, balance sheet products, mutual funds).</li>
+                <li>Full mapping of at-risk capabilities and recommendations for priority initiatives.</li>
+                <li>Business analysis leadership for the launch of rate products targeting specialized distribution networks.</li>
             </ul>
 
-            <h4>Formateur - Gestion de patrimoine 101</h4>
+            <h4>Trainer – Wealth Management 101</h4>
             <ul class="experience-list">
-                <li>Formation de 100+ professionnels aux fondamentaux de la gestion de patrimoine depuis 2022</li>
+                <li>Training of 100+ professionals in the fundamentals of wealth management since 2022.</li>
             </ul>
 
-            <h4>Analyste d'affaires - Projets stratégiques</h4>
+            <h4>Business Analyst – Strategic projects</h4>
             <ul class="experience-list">
-                <li>Migration FMS vers Unitrax : stratégies d'essais, coordination technique et fonctionnelle</li>
-                <li>Rehaussement ERC : étude de faisabilité, animation d'ateliers, coordination des équipes techniques</li>
+                <li>FMS to Unitrax migration: test strategies, technical and functional coordination.</li>
+                <li>ERC enhancement: feasibility study, workshop facilitation, coordination of technical teams.</li>
             </ul>
 
-            <h4>Product Owner - Transformation digitale</h4>
+            <h4>Product Owner – Digital transformation</h4>
             <ul class="experience-list">
-                <li>Migration Lotus Notes vers ServiceNow : accompagnement de product owners, garantie de l'application Scrum</li>
+                <li>Lotus Notes to ServiceNow migration: coaching of product owners and support to ensure effective use of Scrum.</li>
             </ul>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
                 <span class="experience-company">Allianz France</span>
-                <span class="experience-period">2014-2018</span>
+                <span class="experience-period">2014 – 2018</span>
             </div>
-            <h3>Product Owner & Responsable Projet</h3>
+            <h3>Product Owner & Project Lead</h3>
             
-            <h4>Virage numérique de l'entreprise</h4>
+            <h4>Company-wide digital transformation</h4>
             <ul class="experience-list">
-                <li>Pilotage de la feuille de route digitale : récits d'utilisation, conception de parcours, prototypage</li>
-                <li>Cadrage et exécution de tests d'ergonomie pré-développement, amélioration continue</li>
-                <li>Accompagnement du changement : tutoriels, vidéos pédagogiques, formations</li>
+                <li>Ownership of the digital roadmap: user stories, journey design, and prototyping.</li>
+                <li>Planning and execution of pre-development usability tests and continuous improvement initiatives.</li>
+                <li>Change management: tutorials, educational videos, and training for internal stakeholders and agents.</li>
             </ul>
 
-            <h4>Application iPad MAX Tablettes Agents</h4>
+            <h4>iPad app “MAX Tablettes Agents”</h4>
             <ul class="experience-list">
-                <li>Déploiement auprès de 2 000 agents généraux et préventionnistes</li>
-                <li>Gestion complète du cycle de vie produit en méthodologie Agile</li>
-                <li>Coordination multi-parties prenantes (juridique, distribution, marketing, architecture)</li>
+                <li>Deployment to 2,000 general agents and prevention specialists.</li>
+                <li>End-to-end product lifecycle management using Agile methodologies.</li>
+                <li>Coordination with legal, distribution, marketing, and architecture teams.</li>
             </ul>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
                 <span class="experience-company">ING Direct</span>
-                <span class="experience-period">2011-2013</span>
+                <span class="experience-period">2011 – 2013</span>
             </div>
-            <h3>Analyste d'affaires & Chargé de projet</h3>
+            <h3>Business Analyst & Project Lead</h3>
             <ul class="experience-list">
-                <li>Feuille de route solutions mobiles iOS et Android : spécifications fonctionnelles détaillées</li>
-                <li>Conception et tests de services Web (SOAP UI) et API REST pour applications bancaires</li>
+                <li>Mobile solutions roadmap for iOS and Android: detailed functional specifications.</li>
+                <li>Design and testing of web services (SOAP UI) and REST APIs for banking applications.</li>
             </ul>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
                 <span class="experience-company">Generali France</span>
-                <span class="experience-period">2008-2011</span>
+                <span class="experience-period">2008 – 2011</span>
             </div>
-            <h3>Analyste d'affaires</h3>
+            <h3>Business Analyst</h3>
             <ul class="experience-list">
-                <li>Programme Web et mobile : animation d'ateliers, rédaction de spécifications fonctionnelles</li>
-                <li>Recette fonctionnelle, automatisation de tests sous Selenium</li>
+                <li>Web and mobile program: workshop facilitation and functional specification writing.</li>
+                <li>Functional testing and test automation using Selenium.</li>
             </ul>
         </div>
 
         <div class="experience-item fade-in">
             <div class="experience-meta">
                 <span class="experience-company">BNP Paribas Assurance</span>
-                <span class="experience-period">2003-2008</span>
+                <span class="experience-period">2003 – 2008</span>
             </div>
-            <h3>Analyste d'affaires</h3>
+            <h3>Business Analyst</h3>
             <ul class="experience-list">
-                <li>Table de mortalité - Service de rentes : collecte de besoins multi-métiers</li>
-                <li>Cartographie de processus d'affaires, étude d'impacts applicatifs</li>
+                <li>Mortality table – Annuity service: collection of cross-functional business needs.</li>
+                <li>Business process mapping and analysis of application impacts.</li>
             </ul>
         </div>
     </section>
 
     <section class="section section-alternate" id="formation">
         <div class="section-header fade-in">
-            <div class="section-tag">Formation</div>
-            <h2 class="section-title">Parcours académique</h2>
+            <div class="section-tag">Education</div>
+            <h2 class="section-title">Academic background</h2>
         </div>
         <div class="education-grid">
             <div class="education-item fade-in">
-                <strong>Certificat de planification financière (Pl.Fin.)</strong>
-                <p>HEC Montréal (en cours - complété en 2027)</p>
+                <strong>Financial Planning Certificate (Pl.Fin.)</strong>
+                <p>HEC Montréal (in progress – expected completion 2027)</p>
             </div>
             <div class="education-item fade-in">
-                <strong>Diploma UX Design</strong>
+                <strong>Professional Diploma in UX Design</strong>
                 <p>UX Design Institute (2020)</p>
             </div>
             <div class="education-item fade-in">
-                <strong>Master Finance de marché et gestion de patrimoine</strong>
-                <p>Conservatoire national des arts et métiers, Paris (2008)</p>
+                <strong>Master's in Capital Markets and Wealth Management</strong>
+                <p>Conservatoire national des arts et métiers (CNAM), Paris (2008)</p>
             </div>
             <div class="education-item fade-in">
-                <strong>Titre de responsable de gestion</strong>
+                <strong>Management Program – Responsible for Management</strong>
                 <p>European Business School, Paris (2002)</p>
             </div>
         </div>
@@ -1036,7 +1042,7 @@
     <section class="section">
         <div class="section-header fade-in">
             <div class="section-tag">Certifications</div>
-            <h2 class="section-title">Certifications professionnelles</h2>
+            <h2 class="section-title">Professional certifications</h2>
         </div>
         <div class="education-grid">
             <div class="education-item fade-in">
@@ -1064,33 +1070,33 @@
 
     <section class="section section-alternate">
         <div class="section-header fade-in">
-            <div class="section-tag">Compétences</div>
-            <h2 class="section-title">Environnements & outils</h2>
+            <div class="section-tag">Skills</div>
+            <h2 class="section-title">Environments & tools</h2>
         </div>
         <div class="skills-grid">
             <div class="skill-category fade-in">
-                <h3>Produits financiers</h3>
-                <p>Unitrax, Global+, tenue de registres</p>
+                <h3>Financial products</h3>
+                <p>Unitrax, Global+, recordkeeping platforms.</p>
             </div>
             <div class="skill-category fade-in">
-                <h3>Méthodologies</h3>
-                <p>Agile Scrum, SAFe, Design Thinking, Lean</p>
+                <h3>Methodologies</h3>
+                <p>Agile Scrum, SAFe, Design Thinking, Lean.</p>
             </div>
             <div class="skill-category fade-in">
-                <h3>Outils de gestion</h3>
-                <p>JIRA, Microsoft Project, Visio, Quality Center, Trello, Basecamp</p>
+                <h3>Management tools</h3>
+                <p>JIRA, Microsoft Project, Visio, Quality Center, Trello, Basecamp.</p>
             </div>
             <div class="skill-category fade-in">
-                <h3>UX & prototypage</h3>
-                <p>Axure, Balsamiq, Figma, tests d'utilisabilité</p>
+                <h3>UX & prototyping</h3>
+                <p>Axure, Balsamiq, Figma, usability testing.</p>
             </div>
             <div class="skill-category fade-in">
                 <h3>Technologies</h3>
-                <p>Services Web (REST, SOAP), iOS, Android, HTML/CSS, ServiceNow</p>
+                <p>Web services (REST, SOAP), iOS, Android, HTML/CSS, ServiceNow.</p>
             </div>
             <div class="skill-category fade-in">
-                <h3>Langues</h3>
-                <p>Français (natif), Anglais (professionnel), Espagnol (conversationnel)</p>
+                <h3>Languages</h3>
+                <p>French (native), English (professional), Spanish (conversational).</p>
             </div>
         </div>
     </section>
@@ -1098,121 +1104,120 @@
     <section class="section about-roni" id="apropos">
         <div class="section-header fade-in">
             <div class="section-tag">Roni Conseil</div>
-            <h2 class="section-title">Au croisement de l'expertise TI et financière</h2>
+            <h2 class="section-title">At the crossroads of IT and financial expertise</h2>
         </div>
         <div class="about-roni-content">
             <div class="about-roni-story fade-in">
-                <p>Roni Conseil est né d'une vision claire : combiner l'expertise technologique et la connaissance approfondie des produits financiers pour créer des solutions numériques qui répondent véritablement aux besoins du secteur.</p>
+                <p>Roni Conseil was born from a clear vision: to combine technological expertise with deep knowledge of financial products in order to build digital solutions that truly reflect the realities of the financial sector.</p>
                 <br>
-                <p>Après plus de 20 ans à œuvrer dans les secteurs bancaire et assurantiel, j'ai constaté un écart persistant entre les équipes techniques et les réalités des produits financiers. Les projets web et mobiles manquaient souvent de cette compréhension profonde des instruments financiers, de la régulation et des enjeux métiers spécifiques.</p>
+                <p>After more than 20 years working in banking and insurance, I observed a persistent gap between technical teams and the specifics of financial products. Web and mobile projects often lacked a deep understanding of financial instruments, regulation, and business constraints.</p>
                 <br>
-                <p>Roni Conseil apporte cette expertise unique : une maîtrise des technologies numériques alliée à une connaissance approfondie des produits de gestion de patrimoine, des fonds d'investissement, de l'épargne-retraite et des mécanismes financiers complexes.</p>
+                <p>Roni Conseil brings this unique dual perspective: strong command of digital technologies combined with in-depth knowledge of wealth management products, investment funds, retirement savings, and complex financial mechanisms.</p>
             </div>
             
             <div class="about-roni-highlight fade-in">
-                <h3>La promesse Roni Conseil</h3>
-                <p>Accompagner les institutions financières dans leurs projets de transformation numérique en apportant une double expertise rare : la maîtrise des technologies web et mobiles centrées sur l'expérience utilisateur, ET la compréhension approfondie des produits et du secteur financier.</p>
+                <h3>The Roni Conseil promise</h3>
+                <p>Support financial institutions in their digital transformation projects by providing a rare dual expertise: web and mobile technologies centered on user experience, and a deep understanding of financial products and the industry.</p>
                 <br>
-                <p>Cette combinaison permet de concevoir des solutions qui ne sont pas seulement techniquement excellentes, mais qui répondent précisément aux exigences réglementaires, aux contraintes métiers et aux attentes des utilisateurs finaux dans le domaine financier.</p>
+                <p>This combination makes it possible to design solutions that are not only technically solid, but also fully aligned with regulatory requirements, business constraints, and end-user expectations in the financial sector.</p>
             </div>
         </div>
     </section>
 
-    <section class="section section-alternate" id="expertises">
+    <section class="section" id="expertises">
         <div class="section-header fade-in">
-            <div class="section-tag">Expertises</div>
-            <h2 class="section-title">Domaines d'excellence</h2>
+            <div class="section-tag">Expertise</div>
+            <h2 class="section-title">Areas of excellence</h2>
         </div>
         <div class="expertise-grid">
             <div class="expertise-card fade-in">
                 <div class="expertise-icon">🏗️</div>
-                <h3>Conseil en architecture & transformation</h3>
-                <p>Diagnostic et cartographie de flux de valeur, conception de solutions d'affaires stratégiques, modernisation de plateformes technologiques</p>
+                <h3>Architecture & transformation consulting</h3>
+                <p>Value stream diagnostics and mapping, strategic business solution design, modernization of technology platforms.</p>
             </div>
             <div class="expertise-card fade-in">
                 <div class="expertise-icon">💼</div>
-                <h3>Gestion de produits financiers</h3>
-                <p>Épargne-retraite collective, fonds communs de placement, produits de bilan, manufacture de produits d'investissement</p>
+                <h3>Financial product management</h3>
+                <p>Group retirement savings, mutual funds, balance sheet products, investment product manufacturing.</p>
             </div>
             <div class="expertise-card fade-in">
                 <div class="expertise-icon">🚀</div>
-                <h3>Leadership Agile & Product Ownership</h3>
-                <p>Product Owner certifié (PSPO I), SAFe PO/PM, pilotage d'équipes Scrum, gestion de carnet produit</p>
+                <h3>Agile leadership & product ownership</h3>
+                <p>Certified Product Owner (PSPO I), SAFe PO/PM, Scrum team leadership, product backlog management.</p>
             </div>
             <div class="expertise-card fade-in">
                 <div class="expertise-icon">✨</div>
-                <h3>Excellence en expérience utilisateur</h3>
-                <p>UX Master Certificate (Nielsen Norman Group), conception de parcours clients, prototypage, tests d'utilisabilité</p>
+                <h3>User experience excellence</h3>
+                <p>UX Master Certificate (Nielsen Norman Group), customer journey design, prototyping, usability testing.</p>
             </div>
-        </div>    </section>
+        </div>
+    </section>
 
     <section class="section" id="contact-form">
-        <div class="section-header">
-            <div class="section-tag">Contact</div>
-            <h2 class="section-title">Envoyez-moi un message</h2>
-        </div>
         <div class="contact-form-container">
-            <p style="color: var(--dune); opacity: 0.7; margin-bottom: 2rem;">Partagez les détails de votre projet et je vous répondrai dans les plus brefs délais.</p>
-            
-            <form action="mailto:jeremy@roniconseil.com" method="post" enctype="text/plain" class="contact-form">
+            <div class="contact-form-header">
+                <div class="section-tag">Contact</div>
+                <h2 class="section-title">Send me a message</h2>
+                <p class="section-description">
+                    Share your project details and I will get back to you as soon as possible.
+                </p>
+            </div>
+            <form class="contact-form" action="mailto:jeremy@roniconseil.com" method="post" enctype="text/plain">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="Nom" placeholder="Votre nom" required>
+                        <label for="name">Full name</label>
+                        <input type="text" id="name" name="Name" placeholder="Your name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="Email" placeholder="votre@email.com" required>
+                        <input type="email" id="email" name="Email" placeholder="your@email.com" required>
                     </div>
                 </div>
-                
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="company">Entreprise</label>
-                        <input type="text" id="company" name="Entreprise" placeholder="Nom de votre entreprise">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="Company" placeholder="Your company">
                     </div>
                     <div class="form-group">
-                        <label for="phone">Téléphone</label>
-                        <input type="tel" id="phone" name="Téléphone" placeholder="438 XXX XXXX">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="438 XXX XXXX">
                     </div>
                 </div>
-                
                 <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" id="subject" name="Sujet" placeholder="Transformation digitale, conseil architecture, etc." required>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="Subject" placeholder="Digital transformation, architecture consulting, etc." required>
                 </div>
-                
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" name="Message" rows="6" placeholder="Décrivez votre projet, vos besoins, et vos objectifs..." required></textarea>
+                    <textarea id="message" name="Message" rows="6" placeholder="Describe your project, needs, and objectives..." required></textarea>
                 </div>
-                
-                <button type="submit" class="cta-button">Envoyer le message</button>
+                <button type="submit" class="cta-button">
+                    Send message
+                </button>
             </form>
         </div>
     </section>
 
     <footer class="footer" id="contact">
         <div class="footer-content">
-            <h2>Discutons de votre projet</h2>
-            <p>Prêt à transformer vos idées en solutions d'affaires innovantes ?</p>
+            <h2>Let's discuss your project</h2>
+            <p>Ready to turn your ideas into innovative business solutions?</p>
             <div class="footer-contact">
                 <a href="tel:4385045142">438 504 5142</a>
                 <a href="mailto:jeremy@roniconseil.com">jeremy@roniconseil.com</a>
             </div>
-            <div class="footer-legal" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
-                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">Roni Conseil Inc. | NEQ : 1180867971</p>
-                <p style="margin-bottom: 0.5rem; font-size: 0.875rem;">Montréal, Québec, Canada</p>
-                <p style="margin-bottom: 1rem; font-size: 0.875rem;">
-                    <a href="https://roniconseil.com" style="color: var(--white); text-decoration: none;">roniconseil.com</a> | 
-                    <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" style="color: var(--white); text-decoration: none;">LinkedIn</a>
+            <div class="footer-legal" style="margin-top: 2.5rem; padding-top: 1.8rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+                <p style="margin-bottom: 0.4rem; font-size: 0.86rem;">Roni Conseil Inc. | NEQ: 1180867971</p>
+                <p style="margin-bottom: 0.4rem; font-size: 0.86rem;">Montreal, Quebec, Canada</p>
+                <p style="margin-bottom: 0.9rem; font-size: 0.86rem;">
+                    <a href="https://roniconseil.com" style="color: var(--text-primary); text-decoration: none;">roniconseil.com</a> | 
+                    <a href="https://www.linkedin.com/in/jeremy-zaghdoun" target="_blank" style="color: var(--text-primary); text-decoration: none;">LinkedIn</a>
                 </p>
-                <p style="opacity: 0.6; font-size: 0.875rem;">© 2025 Roni Conseil Inc. Tous droits réservés.</p>
+                <p style="opacity: 0.6; font-size: 0.84rem;">© 2025 Roni Conseil Inc. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // Navigation Menu
         const navMenu = document.getElementById('navMenu');
@@ -1222,7 +1227,7 @@
 
         // Show navigation on scroll
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 50) { 
+            if (window.pageYOffset > 60) {
                 navMenu.classList.add('visible');
             } else {
                 navMenu.classList.remove('visible');
@@ -1235,45 +1240,34 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking a link
+        // Close mobile menu when clicking a link + smooth scroll
         navLinkItems.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
-            });
-        });
 
-        // Smooth scroll and active link highlighting logic
-        const sections = document.querySelectorAll('section[id]');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150; // Marge ajustée
-                const sectionHeight = section.clientHeight;
-                
-                if (window.pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinkItems.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
 
-        // Animation d'apparition au défilement (Intersection Observer)
+        // Intersection Observer for fade-in
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.12
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -1283,7 +1277,7 @@
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+            fadeObserver.observe(el);
         });
     </script>
 </body>
