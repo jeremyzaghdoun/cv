@@ -1,0 +1,36 @@
+# robots.txt pour roniconseil.com
+# Optimisé pour SEO - Permet l'indexation complète
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://roniconseil.com/sitemap.xml
+
+# Autoriser tous les bots populaires
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Crawler delay (optionnel, peut aider avec certains bots)
+Crawl-delay: 1
+
+# Note: GitHub Pages ajoute parfois son propre robots.txt
+# Si vous voyez des conflits, ce fichier prend priorité
